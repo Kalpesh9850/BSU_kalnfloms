@@ -6,7 +6,7 @@ Making API connectors and ETL flows-Setting up data models
 Writing SQL and DAX
 Building Power BI and (Micro)Strategy dashboards
 readable models and measures
-#Key Insights
+# Key Insights
 Visual
 KPI
 Matrix
