@@ -1,0 +1,319 @@
+table fct_BSU_KPI_Targets_AFAS
+	lineageTag: 83f2c19f-bd38-4512-8cda-16c36cc5e728
+
+	measure fct_KPI_Target = ```
+			
+			SUM(fct_BSU_KPI_Targets_AFAS[value])
+			
+			```
+		lineageTag: a0af3eca-7244-46c3-83de-3ec1dfca025d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-001' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-001"    
+			)
+			```
+		lineageTag: ef1a1e83-3a53-4004-978e-78c7ab981cc1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-002' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-002"    
+			)
+			```
+		lineageTag: 6bb50562-9253-4d07-87a5-12044df7477b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-003' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-003"    
+			)
+			```
+		lineageTag: 55013d7b-96ff-4ee5-9200-c1fc1b632f7e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-004' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-004"    
+			)
+			```
+		lineageTag: 066e5d4b-010a-49e2-9fd3-e885e0786df2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-005' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-005"    
+			)
+			```
+		lineageTag: 6d3153ff-a3a4-4f71-b94a-2fca8b8ba3e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-006' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-006"    
+			)
+			```
+		lineageTag: ce5ccbe5-b08c-4045-a097-8a7cc938a4ae
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-007' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-007"    
+			)
+			```
+		lineageTag: fc632f13-3c7a-47ce-99d6-54737b496ae4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-008' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-008"    
+			)
+			```
+		lineageTag: 9aa55094-2496-4e95-bbc3-566d3d499967
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-009' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-009"    
+			)
+			```
+		lineageTag: f95927f4-f0b6-436e-9492-3deba0fff3ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-010' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-010"    
+			)
+			```
+		lineageTag: 57bdc9a2-6390-4aca-8a83-6a7e5b786bbb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-011' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-011"    
+			)
+			```
+		lineageTag: f235167d-286f-4f8b-a9a7-49a21f019583
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-012' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-012"    
+			)
+			```
+		lineageTag: 9562b56a-4938-4cdc-a307-b2072d75627a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-013' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-013"    
+			)
+			```
+		lineageTag: b5680127-7fe9-4b2d-aae9-4038e2b9947c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-014' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-014"    
+			)
+			```
+		lineageTag: c004e9c2-2594-4109-922a-f8977436d86d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target KPI-015' = ```
+			
+			CALCULATE(
+			[fct_KPI_Target],
+			fct_BSU_KPI_Targets_AFAS [kpi_id] = "KPI-015"    
+			)
+			```
+		lineageTag: 457585be-33bb-4d47-a08a-a9c7a89107cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column department
+		dataType: string
+		lineageTag: d52aae01-d294-4983-8078-c117a61a727f
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi_datatype
+		dataType: string
+		lineageTag: 43bd9252-e8c3-4cf1-a608-39885a53d868
+		summarizeBy: none
+		sourceColumn: kpi_datatype
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8b0fefe3-1697-42b5-8676-1e2cc41562e7
+		summarizeBy: none
+		sourceColumn: created_date
+
+		variation Variation
+			isDefault
+			relationship: 9f5cd460-6a1d-406b-8828-44196c258f1b
+			defaultHierarchy: LocalDateTable_0ca0da10-e23d-4b77-8cda-c8874000402b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date_period
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c7493eb3-7607-4653-a25d-88b872f38885
+		summarizeBy: none
+		sourceColumn: end_date_period
+
+		variation Variation
+			isDefault
+			relationship: 6a61e6a6-ae8d-429d-9768-6afea418d52f
+			defaultHierarchy: LocalDateTable_8ca345c6-caa1-4515-9fcd-50b53133276f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi
+		dataType: string
+		lineageTag: 3aea4a21-4311-494d-8516-a915b630f5c2
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi_id
+		dataType: string
+		lineageTag: 792a46ea-c863-446a-b013-9df1a4732548
+		summarizeBy: none
+		sourceColumn: kpi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi_eng
+		dataType: string
+		lineageTag: 48add3aa-a6c4-4beb-a8b7-1a7f555042b5
+		summarizeBy: none
+		sourceColumn: kpi_eng
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: d1595308-67b4-485d-bf57-dac69a53d9c3
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 9f4be3b9-1f43-4e21-95df-f04a254a5932
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date_period
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5171c28a-5645-4213-a006-2632f7720ebd
+		summarizeBy: none
+		sourceColumn: start_date_period
+
+		variation Variation
+			isDefault
+			relationship: 80470866-6bf3-44b4-891c-5dd6aa652158
+			defaultHierarchy: LocalDateTable_0c1cf8df-6acf-4d11-8a56-4a5c507c445b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column index
+		dataType: int64
+		formatString: 0
+		lineageTag: a11992f3-2a3c-42ae-aecb-3c345c3e6fdf
+		summarizeBy: sum
+		sourceColumn: index
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: 561eb092-e040-4dee-9a34-425323628ecb
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cf679fe4-c3ce-43b5-9be4-d64cdc0e265d
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 971e7eb7-b1eb-41ef-aca6-5c502e0ceb7a
+			defaultHierarchy: LocalDateTable_aace9fc6-3e34-4f61-b10a-f0f2d128cc4d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_BSU_KPI_Targets_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_BSU_KPI_Targets_AFAS = Source{[Schema="stg",Item="BSU_KPI_Targets_AFAS"]}[Data]
+				in
+				    stg_BSU_KPI_Targets_AFAS
+
+	annotation PBI_ResultType = Table
+

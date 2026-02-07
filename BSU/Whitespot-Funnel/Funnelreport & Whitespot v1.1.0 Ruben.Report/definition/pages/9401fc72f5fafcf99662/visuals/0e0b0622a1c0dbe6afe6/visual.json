@@ -1,0 +1,172 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "0e0b0622a1c0dbe6afe6",
+  "position": {
+    "x": 790.12987012987,
+    "y": 57.662337662337656,
+    "z": 0,
+    "height": 74.8051948051948,
+    "width": 225.97402597402595,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "New dynamic changes LS"
+                    }
+                  },
+                  "Property": "New dynamic changes LS"
+                }
+              },
+              "queryRef": "New dynamic changes LS.New dynamic changes LS",
+              "nativeQueryRef": "New dynamic changes LS",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "n",
+                    "Entity": "New dynamic changes LS",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "n"
+                                }
+                              },
+                              "Property": "New dynamic changes LS Fields"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''dim_SalesForecastDeals_AFAS''[Booster Units Weighted (New)]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''dim_SalesForecastDeals_AFAS''[Mobile Units Weighted (New)]'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "New dynamic changes LS"
+                                }
+                              },
+                              "Property": "New dynamic changes LS"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''dim_SalesForecastDeals_AFAS''[Booster Units Weighted (New)]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''dim_SalesForecastDeals_AFAS''[Mobile Units Weighted (New)]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "New dynamic changes LS"
+                                    }
+                                  },
+                                  "Property": "New dynamic changes LS Fields"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "Booster Units Weighted (New)"
+                          },
+                          {
+                            "0": "Mobile Units Weighted (New)"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

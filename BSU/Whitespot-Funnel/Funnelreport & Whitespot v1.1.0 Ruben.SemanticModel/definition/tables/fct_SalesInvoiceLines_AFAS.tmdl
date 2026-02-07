@@ -1,0 +1,185 @@
+table fct_SalesInvoiceLines_AFAS
+	lineageTag: bab1a770-c932-4211-836a-83a293c4bc44
+
+	column aantal_eenheden
+		dataType: double
+		lineageTag: 4ba9e12e-4258-4dd8-9176-9353b5656051
+		summarizeBy: sum
+		sourceColumn: aantal_eenheden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column administratie
+		dataType: int64
+		formatString: 0
+		lineageTag: c380d5a8-5ba4-4321-a2e5-7b17d17b9fc9
+		summarizeBy: sum
+		sourceColumn: administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column artikelgroep
+		dataType: int64
+		formatString: 0
+		lineageTag: 176dc93c-fab9-485d-adc0-d0f939e3b124
+		summarizeBy: sum
+		sourceColumn: artikelgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column factuurnummer
+		dataType: string
+		lineageTag: 70f7aad1-235b-4f31-a930-09d0124b2143
+		summarizeBy: none
+		sourceColumn: factuurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemcode
+		dataType: string
+		lineageTag: dd895354-8067-41ef-8eb1-3b034c7ffd03
+		summarizeBy: none
+		sourceColumn: itemcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column kenmerk_rekening
+		dataType: string
+		lineageTag: 44c40a50-2dff-4b3d-a58f-e86598104532
+		summarizeBy: none
+		sourceColumn: kenmerk_rekening
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam_administratie
+		dataType: string
+		lineageTag: 43586427-6b71-46a5-8093-a975d60dd197
+		summarizeBy: none
+		sourceColumn: naam_administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving
+		dataType: string
+		lineageTag: 0c059d53-9044-4fa9-b979-b22607e1dc5e
+		summarizeBy: none
+		sourceColumn: omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_2
+		dataType: string
+		lineageTag: 6ebde832-0a37-43ae-8e43-1db6619d4c35
+		summarizeBy: none
+		sourceColumn: omschrijving_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_3
+		dataType: string
+		lineageTag: 00624783-0f69-4dc7-a7a0-531592444ad3
+		summarizeBy: none
+		sourceColumn: omschrijving_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_4
+		dataType: string
+		lineageTag: 0d2e8ee2-1732-4317-b20e-ddfbd198a5d7
+		summarizeBy: none
+		sourceColumn: omschrijving_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_5
+		dataType: string
+		lineageTag: a373576b-8604-4429-ba0c-b3f213efec53
+		summarizeBy: none
+		sourceColumn: omschrijving_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column regelbedrag
+		dataType: double
+		lineageTag: 39576b73-5dcb-4469-979e-e1c09f8c1873
+		summarizeBy: sum
+		sourceColumn: regelbedrag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column regelbedrag_2
+		dataType: int64
+		formatString: 0
+		lineageTag: a4c1f315-4ace-4e75-b7f9-c7a25f91715a
+		summarizeBy: sum
+		sourceColumn: regelbedrag_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column rek_opbrengst
+		dataType: int64
+		formatString: 0
+		lineageTag: adc14712-9cb8-4da8-9b7d-db51d154f8b0
+		summarizeBy: sum
+		sourceColumn: rek_opbrengst
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_order
+		dataType: string
+		lineageTag: b66cdeb4-dc8a-47bd-bc5d-2e07ab21d01b
+		summarizeBy: none
+		sourceColumn: type_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b06c083-c8b7-4267-80ec-6b7489d14d34
+		summarizeBy: sum
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column volgnummer
+		dataType: int64
+		formatString: 0
+		lineageTag: ab96b23e-c287-4c20-a5c7-d9c34c81882a
+		summarizeBy: sum
+		sourceColumn: volgnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8c6bb7fa-cbe5-4da1-9ce9-f8cbf2c35b3c
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: eed8c9bb-4cb7-4785-8517-a40757d5f3be
+			defaultHierarchy: LocalDateTable_e3c10851-5652-4416-a46d-c14d079740db.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_SalesInvoiceLines_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_SalesInvoiceLines_AFAS = Source{[Schema="stg",Item="SalesInvoiceLines_AFAS"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(stg_SalesInvoiceLines_AFAS,{{"aantal_eenheden", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Funnelreport & Whitespot v1.1.0 Ruben"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a14603c7-bae5-4e5f-b2fb-4f2250baa1de"
+  }
+}

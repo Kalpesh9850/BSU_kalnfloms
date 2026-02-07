@@ -1,0 +1,396 @@
+table dim_Projects_AFAS
+	lineageTag: 6a1fab01-ea7d-4d36-b74d-d8b94bdc030a
+
+	column aangemaakt_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f6485922-7d51-494e-9a66-c4730473a3a3
+		summarizeBy: none
+		sourceColumn: aangemaakt_op
+
+		variation Variation
+			isDefault
+			relationship: ee0cd600-209d-4402-b8ef-2d34a6d28d2f
+			defaultHierarchy: LocalDateTable_7819511e-e78d-43c8-ac5c-421b180415f0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column administratie
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ce64203-5e9f-4831-86e2-65a7f96bbbb2
+		summarizeBy: sum
+		sourceColumn: administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column afgemeld
+		dataType: int64
+		formatString: 0
+		lineageTag: 9182befe-bbaa-4bee-8067-3fcaf4b53577
+		summarizeBy: sum
+		sourceColumn: afgemeld
+
+		annotation SummarizationSetBy = Automatic
+
+	column apart_factureren
+		dataType: int64
+		formatString: 0
+		lineageTag: 6894d32c-defc-4990-965e-92b00d5520b8
+		summarizeBy: sum
+		sourceColumn: apart_factureren
+
+		annotation SummarizationSetBy = Automatic
+
+	column begindatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 700750a5-e943-4fe8-b4a3-b6a1af5c0a3b
+		summarizeBy: none
+		sourceColumn: begindatum
+
+		variation Variation
+			isDefault
+			relationship: 4614f322-bd41-429e-8ca7-6b08bf314598
+			defaultHierarchy: LocalDateTable_61b5b031-7289-498f-b366-58ecfd1381bf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c45fb90-7c0c-4f3d-a77f-960a2dfc4c77
+		summarizeBy: sum
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column datum_gereed_planning
+		dataType: int64
+		formatString: 0
+		lineageTag: e25ab4c2-511b-4a48-9eb0-e217135d4a3f
+		summarizeBy: sum
+		sourceColumn: datum_gereed_planning
+
+		annotation SummarizationSetBy = Automatic
+
+	column datum_toegevoegd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a2643e7e-bc7b-47c0-8433-72902bb3ba39
+		summarizeBy: none
+		sourceColumn: datum_toegevoegd
+
+		variation Variation
+			isDefault
+			relationship: 372bdc72-0642-4d9c-806c-3cc809e8bf21
+			defaultHierarchy: LocalDateTable_863fb7fd-d6fb-45b1-a805-56cc3b5cacfe.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column doel
+		dataType: int64
+		formatString: 0
+		lineageTag: a2527d23-ee75-4260-987d-8ae12fba667c
+		summarizeBy: sum
+		sourceColumn: doel
+
+		annotation SummarizationSetBy = Automatic
+
+	column fixed_price
+		dataType: int64
+		formatString: 0
+		lineageTag: b01d338f-3198-4865-b3e3-caff022bdb4f
+		summarizeBy: sum
+		sourceColumn: fixed_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column gepland
+		dataType: int64
+		formatString: 0
+		lineageTag: c6d26838-4cbf-4fec-b189-a9b13c9f6ae7
+		summarizeBy: sum
+		sourceColumn: gepland
+
+		annotation SummarizationSetBy = Automatic
+
+	column gepland_datum
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fe87780-08c8-466d-b5a0-c80c11beb35b
+		summarizeBy: sum
+		sourceColumn: gepland_datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_door
+		dataType: string
+		lineageTag: c730a1bc-3e49-4f43-a870-d45c91f08ef9
+		summarizeBy: none
+		sourceColumn: gewijzigd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9a2e0d28-1cdf-4bad-9f3b-079022403828
+		summarizeBy: none
+		sourceColumn: gewijzigd_op
+
+		variation Variation
+			isDefault
+			relationship: 28283721-74b4-4382-80bf-e51807ce70b1
+			defaultHierarchy: LocalDateTable_a8657ae2-d6d8-4066-83af-4a0ef306de0a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column hoofdproject
+		dataType: int64
+		formatString: 0
+		lineageTag: b58fee4c-e43a-46d2-878c-1b02c49cb267
+		summarizeBy: sum
+		sourceColumn: hoofdproject
+
+		annotation SummarizationSetBy = Automatic
+
+	column kenmerk
+		dataType: int64
+		formatString: 0
+		lineageTag: 754137c2-dddc-40d6-a9f4-6a3faa3ffa7c
+		summarizeBy: sum
+		sourceColumn: kenmerk
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostendrager
+		dataType: int64
+		formatString: 0
+		lineageTag: a52c1b0b-7709-446c-ae7a-bb17a1f86578
+		summarizeBy: sum
+		sourceColumn: kostendrager
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: 32be184c-987a-45cc-9480-e16096ecab4b
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer_forecast
+		dataType: string
+		lineageTag: 4d341789-b2fd-45e7-b6b4-2a39ba5d2cbb
+		summarizeBy: none
+		sourceColumn: nummer_forecast
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving
+		dataType: string
+		lineageTag: 74ea96a6-ab3a-4265-a7c6-3908c424f01b
+		summarizeBy: none
+		sourceColumn: omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_2
+		dataType: string
+		lineageTag: f655ba5f-b6b4-4f0d-a509-d7440a49c18f
+		summarizeBy: none
+		sourceColumn: omschrijving_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_3
+		dataType: string
+		lineageTag: 912b7f16-5c4f-4547-b371-6128e55368cd
+		summarizeBy: none
+		sourceColumn: omschrijving_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column opmerking
+		dataType: int64
+		formatString: 0
+		lineageTag: 75640fc4-d315-4f69-bda5-15a0a13b29ea
+		summarizeBy: sum
+		sourceColumn: opmerking
+
+		annotation SummarizationSetBy = Automatic
+
+	column profiel_naam
+		dataType: string
+		lineageTag: f66bf9f2-a28d-4924-be6e-ee396cc00685
+		summarizeBy: none
+		sourceColumn: profiel_naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column project
+		dataType: string
+		lineageTag: ec0dff47-f76f-42cd-8d3e-1c9764ffeba7
+		summarizeBy: none
+		sourceColumn: project
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_project
+		dataType: string
+		lineageTag: fa33466a-7aa8-47a4-8f0c-6e6273e33926
+		summarizeBy: none
+		sourceColumn: project_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column projectfase
+		dataType: string
+		lineageTag: 7d9f8e78-239f-482e-a786-4bd9fb93ae96
+		summarizeBy: none
+		sourceColumn: projectfase
+
+		annotation SummarizationSetBy = Automatic
+
+	column projectgroep
+		dataType: string
+		lineageTag: 55cf0f0c-45f1-43ee-a74e-8263e22d05b1
+		summarizeBy: none
+		sourceColumn: projectgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column projectgroep_2
+		dataType: string
+		lineageTag: 341fefb9-23fa-4a51-80bf-00cdbf3dee58
+		summarizeBy: none
+		sourceColumn: projectgroep_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column referentie_opdrachtgever
+		dataType: int64
+		formatString: 0
+		lineageTag: 7951a541-e6dc-4087-a8c1-97b09573f181
+		summarizeBy: sum
+		sourceColumn: referentie_opdrachtgever
+
+		annotation SummarizationSetBy = Automatic
+
+	column strategie
+		dataType: int64
+		formatString: 0
+		lineageTag: ec283442-f04d-4f77-98c5-91306cfd3d7a
+		summarizeBy: sum
+		sourceColumn: strategie
+
+		annotation SummarizationSetBy = Automatic
+
+	column termijnfacturen
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fcafbc4-159e-496a-ab55-16ce274e54d8
+		summarizeBy: sum
+		sourceColumn: termijnfacturen
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door
+		dataType: string
+		lineageTag: e669bcd3-f8c7-4239-9e87-10c1ba44cf97
+		summarizeBy: none
+		sourceColumn: toegevoegd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column totale_aanneemsom
+		dataType: int64
+		formatString: 0
+		lineageTag: a3d57e57-a896-41e2-b8f2-de54175867dd
+		summarizeBy: sum
+		sourceColumn: totale_aanneemsom
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_project
+		dataType: string
+		lineageTag: ae87e4f3-7d98-4b15-8694-93cb1ece08ce
+		summarizeBy: none
+		sourceColumn: type_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column verbijzonderingsas
+		dataType: int64
+		formatString: 0
+		lineageTag: 92a2ab60-97ab-4392-82ff-319282c9f807
+		summarizeBy: sum
+		sourceColumn: verbijzonderingsas
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: a8d5e07b-11ff-4c10-900d-c41563fc00de
+		summarizeBy: sum
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column waar
+		dataType: int64
+		formatString: 0
+		lineageTag: d4b331f3-13b3-4dc0-9ed6-1a79441bcfa9
+		summarizeBy: sum
+		sourceColumn: waar
+
+		annotation SummarizationSetBy = Automatic
+
+	column werkelijke_datum_gereed
+		dataType: int64
+		formatString: 0
+		lineageTag: d2eb694c-f217-46dd-9ac7-8ad0f8802b84
+		summarizeBy: sum
+		sourceColumn: werkelijke_datum_gereed
+
+		annotation SummarizationSetBy = Automatic
+
+	column wie
+		dataType: int64
+		formatString: 0
+		lineageTag: a2929d69-1b77-4b39-b32b-89f96d1d23e9
+		summarizeBy: sum
+		sourceColumn: wie
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a5d07841-c69b-4b9b-bd43-846fde70bd1f
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: f7871a47-53b0-4e7b-adf5-3c40f0740d80
+			defaultHierarchy: LocalDateTable_043e0f7c-bf15-4a2a-a613-b108794862da.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Projects_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_Projects_AFAS = Source{[Schema="stg",Item="Projects_AFAS"]}[Data]
+				in
+				    stg_Projects_AFAS
+
+	annotation PBI_ResultType = Table
+

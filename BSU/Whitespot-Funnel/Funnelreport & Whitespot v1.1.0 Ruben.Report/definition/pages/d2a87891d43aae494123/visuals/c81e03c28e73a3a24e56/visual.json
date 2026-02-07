@@ -1,0 +1,132 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "c81e03c28e73a3a24e56",
+  "position": {
+    "x": 10.262877664794438,
+    "y": 0,
+    "z": 0,
+    "height": 720.11191614640973,
+    "width": 595.2469045580774,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Created 4 calculated columns in \"dim_SalesForecastDeals_AFAS\" table also created \"",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  },
+                  {
+                    "value": "Total Deals MRR = ",
+                    "textStyle": {
+                      "fontFamily": "Consolas, Courier New, monospace",
+                      "fontSize": "12px",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": "SUM",
+                    "textStyle": {
+                      "fontFamily": "Consolas, Courier New, monospace",
+                      "fontSize": "12px",
+                      "color": "#3165bb"
+                    }
+                  },
+                  {
+                    "value": "(",
+                    "textStyle": {
+                      "fontFamily": "Consolas, Courier New, monospace",
+                      "fontSize": "12px",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": "dim_SalesForecastDeals_AFAS[MRR_FINAL]",
+                    "textStyle": {
+                      "fontFamily": "Consolas, Courier New, monospace",
+                      "fontSize": "12px",
+                      "color": "#001080"
+                    }
+                  },
+                  {
+                    "value": ")",
+                    "textStyle": {
+                      "fontFamily": "Consolas, Courier New, monospace",
+                      "fontSize": "12px",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "measure."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "created relationship between forecast and precalculation based on \"link_forecast_id\""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "removed duplicates from product and organisation afas."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "we add a filter that allows the user to switch between ( Task12/13)"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Using Modilling -> New Parameter -> Field Parameter ->New  Dynamic changes LS / RS"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

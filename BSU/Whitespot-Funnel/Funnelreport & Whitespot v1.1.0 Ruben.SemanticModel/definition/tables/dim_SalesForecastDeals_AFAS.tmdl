@@ -1,0 +1,872 @@
+table dim_SalesForecastDeals_AFAS
+	lineageTag: f3399b41-8b33-454a-b9ce-8812ef957bd1
+
+	measure 'Total Deals (New)' =
+			CONCATENATE(
+			CONCATENATE(DISTINCTCOUNT(dim_SalesForecastDeals_AFAS [forecastid])," | €"),
+			FORMAT(SUM(dim_SalesForecastDeals_AFAS[nieuwe_omzetwaarde]), "###,####")
+			)
+		lineageTag: efe943ec-c120-4880-a4ae-be29c225318c
+
+	measure 'Deals Won (New)' = ```
+			
+			CONCATENATE(
+			CONCATENATE(CALCULATE (
+			COUNTROWS ( dim_SalesForecastDeals_AFAS  ),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Won" )
+			)," | €"),
+			CALCULATE(
+			FORMAT(SUM(dim_SalesForecastDeals_AFAS [nieuwe_omzetwaarde]), "###,####"),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Won" )
+			))
+			
+			```
+		lineageTag: 09f0f890-8ead-4dbe-84dc-45d8cf86a8ed
+
+	measure 'Deals Open (New)' =
+			
+			CONCATENATE(
+			CONCATENATE(CALCULATE (
+			COUNTROWS ( dim_SalesForecastDeals_AFAS  ),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Open" )
+			)," | €"),
+			CALCULATE(
+			FORMAT(SUM(dim_SalesForecastDeals_AFAS [nieuwe_omzetwaarde]), "###,####"),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Open" )
+			))
+		lineageTag: 20d09b25-0d57-42cc-8af8-aa839db5989a
+
+	measure 'Deals Lost (New)' =
+			
+			CONCATENATE(
+			CONCATENATE(CALCULATE (
+			COUNTROWS ( dim_SalesForecastDeals_AFAS  ),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Lost" )
+			)," | €"),
+			CALCULATE(
+			FORMAT(SUM(dim_SalesForecastDeals_AFAS [nieuwe_omzetwaarde]), "###,####"),
+			CONTAINSSTRING ( dim_SalesForecastDeals_AFAS [Deal Status], "Lost" )
+			))
+		lineageTag: 54572723-5f36-4697-9589-408c17460b80
+
+	measure 'Total Revenue' =
+			
+			SUM(dim_SalesForecastDeals_AFAS[nieuwe_omzetwaarde])+
+			SUM(dim_SalesForecastDeals_AFAS[eenmalige_omzet])+
+			SUM(dim_SalesForecastDeals_AFAS[omzet_uren])
+		formatString: 0
+		lineageTag: f47adbe1-8796-4157-8478-f6680af7c27d
+
+	measure 'Weighted One-time Revenue' =
+			
+			SUMX(
+			FILTER(
+			dim_SalesForecastDeals_AFAS,
+			dim_SalesForecastDeals_AFAS[Deal Status] <> " Lost"
+			),
+			dim_SalesForecastDeals_AFAS[One-time Revenue final] *
+			IF(
+			dim_SalesForecastDeals_AFAS[scoringskans____] > 1,
+			dim_SalesForecastDeals_AFAS[scoringskans____] / 100,
+			dim_SalesForecastDeals_AFAS[scoringskans____]
+			)
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 082b03a2-c42b-4f4e-822d-90d6c62b3a9b
+
+	measure 'Mobile Units Weighted (New)' =
+			
+			SUMX(
+			FILTER(
+			dim_SalesForecastDeals_AFAS,
+			dim_SalesForecastDeals_AFAS[Deal Status] <> " Lost"
+			),
+			dim_SalesForecastDeals_AFAS[Mobiles_final] *
+			IF(
+			dim_SalesForecastDeals_AFAS[scoringskans____] > 1,
+			dim_SalesForecastDeals_AFAS[scoringskans____] / 100,
+			dim_SalesForecastDeals_AFAS[scoringskans____]
+			)
+			)
+		formatString: 0
+		lineageTag: ba817f40-0c7f-4222-813d-f998e87eb00f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Delta Omzet Gewogen' =
+			
+			SUM(dim_SalesForecastDeals_AFAS[MRR_final])-SUM(dim_SalesForecastDeals_AFAS[oude_omzetwaarde])
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: bb13059f-3d4e-4318-95c4-07d8da3208e1
+
+	measure 'Average Weighting % (New)' =
+			
+			AVERAGEX(
+			    dim_SalesForecastDeals_AFAS,
+			    IF(
+			        dim_SalesForecastDeals_AFAS[scoringskans____] > 1,
+			        dim_SalesForecastDeals_AFAS[scoringskans____] / 100,
+			        dim_SalesForecastDeals_AFAS[scoringskans____]
+			    )
+			)
+		lineageTag: 58797345-b1de-4f31-866d-4bb0ea800063
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Mobile Units Weighted 1(New)' =
+			
+			SUMX(
+			    dim_SalesForecastDeals_AFAS,
+			    dim_SalesForecastDeals_AFAS[Nieuwe_aantallen_mobiel] *
+			    (dim_SalesForecastDeals_AFAS[verwacht_bedrag] * IF(dim_SalesForecastDeals_AFAS[scoringskans____] > 1, dim_SalesForecastDeals_AFAS[scoringskans____] / 100, dim_SalesForecastDeals_AFAS[scoringskans____]) )
+			)
+		lineageTag: f49c697e-2021-4545-98b2-4f0a638618a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Booster Units Weighted (New)' =
+			
+			SUMX(
+			FILTER(
+			dim_SalesForecastDeals_AFAS,
+			dim_SalesForecastDeals_AFAS[Deal Status] <> " Lost"
+			),
+			dim_SalesForecastDeals_AFAS[Boosterseat_final] *
+			IF(
+			dim_SalesForecastDeals_AFAS[scoringskans____] > 1,
+			dim_SalesForecastDeals_AFAS[scoringskans____] / 100,
+			dim_SalesForecastDeals_AFAS[scoringskans____]
+			)
+			)
+		formatString: 0
+		lineageTag: 4ab2ad34-d06a-429a-94c4-96f47d40de85
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Weighted MRR' =
+			
+			SUMX(
+			FILTER(
+			dim_SalesForecastDeals_AFAS,
+			dim_SalesForecastDeals_AFAS[Deal Status] <> " Lost"
+			),
+			dim_SalesForecastDeals_AFAS[MRR_final] *
+			IF(
+			dim_SalesForecastDeals_AFAS[scoringskans____] > 1,
+			dim_SalesForecastDeals_AFAS[scoringskans____] / 100,
+			dim_SalesForecastDeals_AFAS[scoringskans____]
+			)
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: c3f7a1d9-1e5b-4bf4-8485-7a1ddc799763
+
+	measure MRR_Actual = ```
+			
+			CALCULATE(
+			    SUM( dim_SalesForecastDeals_AFAS[verwacht_bedrag] ),   
+			    dim_SalesForecastDeals_AFAS[forecast_open_status] = "Gesloten en gescoord",
+			    dim_SalesForecastDeals_AFAS[IsSubscriptionFlag] = 1   
+			)
+			```
+		lineageTag: 42aeb25e-0837-40bf-abd3-36ea3fc8870a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Deals MRR' = SUM(dim_SalesForecastDeals_AFAS[MRR_final])
+		lineageTag: 95261d2f-ff6a-4cca-9d05-a9cef423f9d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weghted One-Time Revenue new' =
+			
+			CALCULATE(
+			    SUMX(
+			        dim_SalesForecastDeals_AFAS,
+			        dim_SalesForecastDeals_AFAS[eenmalige_omzet]*dim_SalesForecastDeals_AFAS[scoringskans____]/100),
+			        dim_SalesForecastDeals_AFAS[forecast_open_status]="Open"
+			        )
+		lineageTag: 877d4227-9519-48fa-abad-2c9d18ce60ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MRR (Active)' =
+			
+			var currentDate=max(dim_SalesForecastDeals_AFAS[aangemaakt_op])
+			RETURN
+			CALCULATE(
+			    SUMX(
+			        fct_SubscriptionLines_AFAS,
+			        SWITCH(
+			            fct_SubscriptionLines_AFAS[cyclus_facturering],
+			            "Jaar",fct_SubscriptionLines_AFAS[waarde_abonnement]/12,
+			            "Kwartaal",fct_SubscriptionLines_AFAS[waarde_abonnement]/3,
+			            "Maand",fct_SubscriptionLines_AFAS[waarde_abonnement],
+			            fct_SubscriptionLines_AFAS[waarde_abonnement])),
+			            fct_SubscriptionLines_AFAS[begindatum]<=currentDate,
+			            OR(fct_SubscriptionLines_AFAS[einddatum]=0,fct_SubscriptionLines_AFAS[einddatum]>currentDate))
+		lineageTag: 6698bd45-8277-4b98-86c9-a1b52a64cac9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Deal %' = SUM(dim_SalesForecastDeals_AFAS[scoringskans____])/100
+		formatString: 0%;-0%;0%
+		lineageTag: 563afc4c-aee6-4760-bd2a-f4f597a333ab
+
+	column aangemaakt_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a51952af-1bf7-4549-989e-d56bc2e40690
+		summarizeBy: none
+		sourceColumn: aangemaakt_op
+
+		variation Variation
+			isDefault
+			relationship: c5f8f3fe-1592-4d01-b3f7-9d3685379b99
+			defaultHierarchy: LocalDateTable_a4d1df0d-d9de-42f0-9735-a6c108b301ce.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column afgelegd_reden
+		dataType: string
+		lineageTag: 5c764943-76fe-4412-9ad0-7648afa90b82
+		summarizeBy: none
+		sourceColumn: afgelegd_reden
+
+		annotation SummarizationSetBy = Automatic
+
+	column begindatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d391b18d-a925-4739-b92e-cae74942c1de
+		summarizeBy: none
+		sourceColumn: begindatum
+
+		variation Variation
+			isDefault
+			relationship: 15a8e2c1-9fec-48f9-82d1-256683f04bd8
+			defaultHierarchy: LocalDateTable_e84879c6-6caa-4846-9464-c172c5d4e335.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column concurrent
+		dataType: string
+		lineageTag: 7000784a-142c-4199-bf48-a27c61386cb1
+		summarizeBy: none
+		sourceColumn: concurrent
+
+		annotation SummarizationSetBy = Automatic
+
+	column eenmalige_omzet
+		dataType: double
+		lineageTag: bf9cbb31-2034-41fa-89e1-e32b60b2e3b4
+		summarizeBy: sum
+		sourceColumn: eenmalige_omzet
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column einddatum
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 79926844-a73f-46be-b968-c75ac80e0b10
+		summarizeBy: none
+		sourceColumn: einddatum
+
+		variation Variation
+			isDefault
+			relationship: c1293c15-d3e7-496b-9d57-cf26c48fb748
+			defaultHierarchy: LocalDateTable_82dcab27-ee34-4915-81e8-a785f9a269c5.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column forecastid
+		dataType: string
+		lineageTag: 7fb0c6cd-a0b9-4cc9-95d9-17df0a736228
+		summarizeBy: none
+		sourceColumn: forecastid
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_open_status
+		dataType: string
+		lineageTag: 5c3944a1-944f-432b-ae59-8f3555903a5c
+		summarizeBy: none
+		sourceColumn: forecast_open_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecastbedrag
+		dataType: string
+		lineageTag: a73bfcb9-d7aa-461f-8580-e167574a368c
+		summarizeBy: none
+		sourceColumn: forecastbedrag
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecastbedrag_basisvaluta
+		dataType: string
+		lineageTag: 4dd0336c-43a8-4845-9c26-e24f0774a8ff
+		summarizeBy: none
+		sourceColumn: forecastbedrag_basisvaluta
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecastgroep
+		dataType: string
+		lineageTag: 73d80c0d-1efa-4f50-be8d-e74f0afabd9e
+		summarizeBy: none
+		sourceColumn: forecastgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column geimporteerde_forecastdatum
+		dataType: string
+		lineageTag: 4f4738a6-b6b0-4e1c-85be-b868ff49ed72
+		summarizeBy: none
+		sourceColumn: geimporteerde_forecastdatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column geimporteerde_omzetdelta
+		dataType: double
+		lineageTag: 1ac57e12-18ef-4848-8b3e-5a573f489649
+		summarizeBy: sum
+		sourceColumn: geimporteerde_omzetdelta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gewijzigd_door
+		dataType: string
+		lineageTag: fe398d87-a44f-4722-b031-d1ad20331588
+		summarizeBy: none
+		sourceColumn: gewijzigd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: be2f22ac-8715-45bc-b455-59e191aaf7e7
+		summarizeBy: none
+		sourceColumn: gewijzigd_op
+
+		variation Variation
+			isDefault
+			relationship: 15a6ae0c-761f-4859-ae99-7cb5713d0b19
+			defaultHierarchy: LocalDateTable_3f405c9e-8704-49b2-b8ad-70d544bc7dfd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: f26f0299-95ff-4a53-ae71-d52f630620bc
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam_2
+		dataType: string
+		lineageTag: d7a70b8c-e8bb-4b19-9b50-4d7f8459a040
+		summarizeBy: none
+		sourceColumn: naam_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column nieuwe_aantallen_booster_seats
+		dataType: int64
+		formatString: 0
+		lineageTag: 614fa804-d97c-45ba-932b-ade58dca5c55
+		summarizeBy: sum
+		sourceColumn: nieuwe_aantallen_booster_seats
+
+		annotation SummarizationSetBy = Automatic
+
+	column nieuwe_aantallen_mobiel
+		dataType: int64
+		formatString: 0
+		lineageTag: 073ad97b-05bd-47ab-bcaf-01e4d4e91e49
+		summarizeBy: sum
+		sourceColumn: nieuwe_aantallen_mobiel
+
+		annotation SummarizationSetBy = Automatic
+
+	column nieuwe_omzetwaarde
+		dataType: double
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 8eca7120-443a-4d90-b19a-edc0d12355cd
+		summarizeBy: sum
+		sourceColumn: nieuwe_omzetwaarde
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving
+		dataType: string
+		lineageTag: 439d8005-db78-476f-b0de-0c5e3078f57b
+		summarizeBy: none
+		sourceColumn: omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_2
+		dataType: string
+		lineageTag: 32011d18-f60f-4acb-ac54-76755f8289c6
+		summarizeBy: none
+		sourceColumn: omschrijving_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column fase
+		dataType: string
+		lineageTag: 10a6d2ba-4249-46d2-aa8b-02c1dfa1c974
+		summarizeBy: none
+		sourceColumn: fase
+
+		annotation SummarizationSetBy = Automatic
+
+	column broncampagne
+		dataType: string
+		lineageTag: 0b018a91-aa75-4255-b11d-94b38e14b941
+		summarizeBy: none
+		sourceColumn: broncampagne
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_5
+		dataType: string
+		lineageTag: ed578b89-fcdb-4a59-84e3-706d7a18b532
+		summarizeBy: none
+		sourceColumn: omschrijving_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_6
+		dataType: string
+		lineageTag: 79e5e6a1-1038-4f0f-bae8-6b1681ab92b2
+		summarizeBy: none
+		sourceColumn: omschrijving_6
+
+		annotation SummarizationSetBy = Automatic
+
+	column omzet_uren
+		dataType: string
+		lineageTag: 7dd62090-dadc-487f-bddb-c5670eacd6d3
+		summarizeBy: none
+		sourceColumn: omzet_uren
+
+		annotation SummarizationSetBy = Automatic
+
+	column omzet_impact_datum
+		dataType: string
+		lineageTag: 1a600cd4-7f62-469c-ad90-4789e2d5933d
+		summarizeBy: none
+		sourceColumn: omzet_impact_datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderbedrag
+		dataType: string
+		lineageTag: ee247475-8b3a-4947-9329-c8e334bf16d8
+		summarizeBy: none
+		sourceColumn: orderbedrag
+
+		annotation SummarizationSetBy = Automatic
+
+	column organisatorische_eenheid_omschrijving
+		dataType: string
+		lineageTag: 3e3dd373-dba5-494e-b140-ae8adad5f9e6
+		summarizeBy: none
+		sourceColumn: organisatorische_eenheid_omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column oude_aantallen_booster_seats
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a01de0f-4926-40f8-88fa-d7c5aa88aa22
+		summarizeBy: sum
+		sourceColumn: oude_aantallen_booster_seats
+
+		annotation SummarizationSetBy = Automatic
+
+	column oude_aantallen_mobiel
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f407975-d42f-4666-9d4c-0062105d7f0c
+		summarizeBy: sum
+		sourceColumn: oude_aantallen_mobiel
+
+		annotation SummarizationSetBy = Automatic
+
+	column oude_omzetwaarde
+		dataType: decimal
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 4aa78348-f84b-4728-80b6-4bc05e5dacec
+		summarizeBy: sum
+		sourceColumn: oude_omzetwaarde
+
+		annotation SummarizationSetBy = Automatic
+
+	column persoon_naam
+		dataType: string
+		lineageTag: b62685ac-c567-42f6-ad6f-5a8f629c0b06
+		summarizeBy: none
+		sourceColumn: persoon_naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column project
+		dataType: string
+		lineageTag: 5172773b-0af8-4b73-9a44-9d4b8e765c8b
+		summarizeBy: none
+		sourceColumn: project
+
+		annotation SummarizationSetBy = Automatic
+
+	column scoringskans____
+		dataType: double
+		lineageTag: b4996e59-81e2-48fd-ab36-a4bb09acc0aa
+		summarizeBy: sum
+		sourceColumn: scoringskans____
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column soort_mutatie
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 20b9b268-d0fb-4162-9566-73218990c14b
+		summarizeBy: none
+		sourceColumn: soort_mutatie
+
+		variation Variation
+			isDefault
+			relationship: 5b5597d0-dbc6-406f-80b4-1d58b444efc0
+			defaultHierarchy: LocalDateTable_be27efac-070b-4062-8c68-b0cc6f0b4deb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door
+		dataType: string
+		lineageTag: b8b34da8-9ad2-4976-858f-d2bbed23c49a
+		summarizeBy: none
+		sourceColumn: toegevoegd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door_naam
+		dataType: string
+		lineageTag: 3106ccd5-bb15-42cc-8d2b-1f9cb1c2dcfe
+		summarizeBy: none
+		sourceColumn: toegevoegd_door_naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column verantwoordelijke
+		dataType: string
+		lineageTag: 4f16ae1e-7e70-4310-9bd2-b06347772830
+		summarizeBy: none
+		sourceColumn: verantwoordelijke
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: 23f9ca21-4692-4545-998f-42bb300a5b2f
+		summarizeBy: none
+		sourceColumn: verkooprelatie
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column verloren_aan
+		dataType: string
+		lineageTag: 0ea67f34-6011-412a-a6d9-38b2c2739961
+		summarizeBy: none
+		sourceColumn: verloren_aan
+
+		annotation SummarizationSetBy = Automatic
+
+	column verwacht_bedrag
+		dataType: double
+		lineageTag: c708669c-7b66-4256-9faa-3ccc4aaccbf2
+		summarizeBy: sum
+		sourceColumn: verwacht_bedrag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column verwacht_bedrag_basisvaluta
+		dataType: double
+		lineageTag: c56b8242-983d-476a-9bfd-477f4afc042d
+		summarizeBy: sum
+		sourceColumn: verwacht_bedrag_basisvaluta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column verwachte_einddatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c91816f2-5bb0-41f2-a7ce-a3785f19b6e2
+		summarizeBy: none
+		sourceColumn: verwachte_einddatum
+
+		variation Variation
+			isDefault
+			relationship: f80f9f23-9497-4d29-8b56-3c4bc7ca88f3
+			defaultHierarchy: LocalDateTable_22ae2bb9-9777-4a12-a409-376921d07f12.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column volgnummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 11394194-39b2-468c-a279-8780faab1f1a
+		summarizeBy: sum
+		sourceColumn: volgnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column voortgang
+		dataType: double
+		lineageTag: 0d43f7aa-4589-439e-834f-bd3a3a1c1ab8
+		summarizeBy: sum
+		sourceColumn: voortgang
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column waarschijnlijkheid____
+		dataType: double
+		lineageTag: bd2624ee-89f3-4c10-9883-8e8c9655dc93
+		summarizeBy: sum
+		sourceColumn: waarschijnlijkheid____
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column werkelijke_einddatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 12a4f5ba-6133-4582-9b38-62113046a758
+		summarizeBy: none
+		sourceColumn: werkelijke_einddatum
+
+		variation Variation
+			isDefault
+			relationship: f189330c-40a5-4801-a199-3f66d1d1a14e
+			defaultHierarchy: LocalDateTable_032a49d6-63bb-46fb-9101-dc1772e1f220.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column bsu__soort_campagne
+		dataType: string
+		lineageTag: 47c212bf-cac2-423a-a208-656af94ce362
+		summarizeBy: none
+		sourceColumn: bsu__soort_campagne
+
+		annotation SummarizationSetBy = Automatic
+
+	column bsu__strategie_forecast
+		dataType: string
+		lineageTag: ec3795c5-a75e-426c-9a5f-914d704fde6e
+		summarizeBy: none
+		sourceColumn: bsu__strategie_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ae599f23-3431-4f80-8c7d-e85228dd9f2b
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 0a8b7039-734f-49ef-ab65-df389d5e886e
+			defaultHierarchy: LocalDateTable_3b2235cf-262b-4b27-81e0-637e7cc68621.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deal Status' =
+			
+			SWITCH(
+			    TRUE(),
+			    CONTAINSSTRING( LOWER(dim_SalesForecastDeals_AFAS[forecast_open_status]), "gesloten en niet"), "❌ Lost",
+			    CONTAINSSTRING( LOWER(dim_SalesForecastDeals_AFAS[forecast_open_status]), "gesloten en gescoord"), "✅ Won",
+			    CONTAINSSTRING( LOWER(dim_SalesForecastDeals_AFAS[forecast_open_status]), "open"), "🔁 Open",
+			    "Other"
+			)
+		lineageTag: 4054b23a-ad11-4c74-92d7-02fa3833b69e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecast URL' = CONCATENATE("https://96573.afasinsite.nl/forecast-prs?FoId=", dim_SalesForecastDeals_AFAS[forecastid])
+		lineageTag: ff4b3855-4cb9-4953-8765-971e83b3de94
+		dataCategory: WebUrl
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSubscriptionFlag = IF(dim_SalesForecastDeals_AFAS[forecastgroep] IN { "Booster" , "Booster Only", "Booster Hybrid", "Booster AVD"},1,0)
+		formatString: 0
+		lineageTag: d418a7da-1975-40de-a110-8265c334183f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'One-time Revenue final' = ```
+			
+			var precalsum=RELATEDTABLE(fct_PrecalculationsWithLines_AFAS)
+			var precalvalue=CALCULATE(sum(fct_PrecalculationsWithLines_AFAS[regelbedrag]), CONTAINSSTRING(LOWER(fct_PrecalculationsWithLines_AFAS[omschrijving_4]), "eenmalig")) 
+			var hasprecalcs=countrows(precalsum)>0
+			return
+			if(hasprecalcs,precalvalue,dim_SalesForecastDeals_AFAS[eenmalige_omzet])
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 7edb038a-8404-4b0a-9681-a851fd57563a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Boosterseat_final =
+			
+			var precalcsum=RELATEDTABLE((fct_PrecalculationsWithLines_AFAS))
+			var precalcvalue=CALCULATE(SUM(dim_SalesForecastDeals_AFAS[nieuwe_aantallen_booster_seats]))
+			var hasprecalcs=COUNTROWS(precalcsum)>0
+			RETURN
+			IF(hasprecalcs,precalcvalue,dim_SalesForecastDeals_AFAS[nieuwe_aantallen_booster_seats])
+		formatString: 0
+		lineageTag: 462945f0-6728-4480-86cf-e91f577c601b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mobiles_final =
+			
+			var precalcsum=RELATEDTABLE(fct_PrecalculationsWithLines_AFAS)
+			var Precalcvalue=CALCULATE(sum(fct_PrecalculationsWithLines_AFAS[verkoop__aantal]), fct_PrecalculationsWithLines_AFAS[presentatiegroep_grp] = "KPN_M0_Q")
+			var hasprecalcs=COUNTROWS(precalcsum)>0
+			RETURN
+			IF(
+			    hasprecalcs,Precalcvalue,dim_SalesForecastDeals_AFAS[nieuwe_aantallen_mobiel]
+			)
+		lineageTag: aa0faacb-f578-4c87-bf7c-a4270bde7941
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MRR_final =
+			
+			VAR Precalcsum=RELATEDTABLE(fct_PrecalculationsWithLines_AFAS)
+			var precalcvalue=CALCULATE(SUM(fct_PrecalculationsWithLines_AFAS[regelbedrag]), CONTAINSSTRING(LOWER(fct_PrecalculationsWithLines_AFAS[omschrijving_4]), "abonnement"))
+			var haspreacals=COUNTROWS((Precalcsum))>0
+			return
+			if(haspreacals,precalcvalue,dim_SalesForecastDeals_AFAS[nieuwe_omzetwaarde])
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 56caf554-3351-42d9-91eb-db390d8d53e4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MRR Dif' = ROUND(dim_SalesForecastDeals_AFAS[MRR_final], 2) - ROUND(dim_SalesForecastDeals_AFAS[nieuwe_omzetwaarde], 2)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 1946de63-6025-467e-8ee8-84a683d3b7b5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'One-time Rev Dif' = ROUND(dim_SalesForecastDeals_AFAS[One-time Revenue final], 2) - ROUND(dim_SalesForecastDeals_AFAS[eenmalige_omzet], 2)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 96454daa-b5dc-4461-a013-3fb254c6690b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Booster Seats Diff' = dim_SalesForecastDeals_AFAS[Boosterseat_final] - dim_SalesForecastDeals_AFAS[nieuwe_aantallen_booster_seats]
+		formatString: 0
+		lineageTag: 65b275a8-a58e-4f8d-8a2e-654485e86b16
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mobile Diff' = dim_SalesForecastDeals_AFAS[Mobiles_final] - dim_SalesForecastDeals_AFAS[nieuwe_aantallen_mobiel]
+		formatString: 0
+		lineageTag: 15db7a32-a677-4516-bfc7-b62c1f4788e3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valdatum =
+			
+			SWITCH(
+			    TRUE(),
+			    LOWER(dim_SalesForecastDeals_AFAS[forecast_open_status]) = "gesloten en gescoord", dim_SalesForecastDeals_AFAS[werkelijke_einddatum],
+			    dim_SalesForecastDeals_AFAS[werkelijke_einddatum].[Year] < 2000, dim_SalesForecastDeals_AFAS[verwachte_einddatum],
+			    dim_SalesForecastDeals_AFAS[verwachte_einddatum]
+			)
+		formatString: Short Date
+		lineageTag: 03e8c0d2-d431-43cd-b895-72ef81bedc64
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'aangemaakt_op date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ce33c3af-8a60-4a41-9c7c-cc48d29be1af
+		summarizeBy: none
+		sourceColumn: aangemaakt_op date
+
+		variation Variation
+			isDefault
+			relationship: d84019eb-bf57-4196-9370-ad16dac21177
+			defaultHierarchy: LocalDateTable_a97eff0d-f86c-435d-9f25-03b1b15cbe05.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_SalesForecastDeals_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_SalesForecastDeals_AFAS = Source{[Schema="stg",Item="SalesForecastDeals_AFAS"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(stg_SalesForecastDeals_AFAS,"0","N.v.t",Replacer.ReplaceValue,{"broncampagne"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"oude_omzetwaarde", Currency.Type}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type", "aangemaakt_op", "aangemaakt_op - Copy"),
+				    #"Extracted Date" = Table.TransformColumns(#"Duplicated Column",{{"aangemaakt_op - Copy", DateTime.Date, type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Extracted Date",{{"aangemaakt_op - Copy", "aangemaakt_op date"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

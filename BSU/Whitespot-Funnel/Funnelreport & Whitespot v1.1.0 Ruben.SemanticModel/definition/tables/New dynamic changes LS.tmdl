@@ -1,0 +1,48 @@
+table 'New dynamic changes LS'
+	lineageTag: c5778066-53a3-4dfb-bfea-b642b8af6b96
+
+	column 'New dynamic changes LS'
+		lineageTag: 011757b8-b8ba-4cb1-a4f9-f86c9065d60b
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'New dynamic changes LS Order'
+
+		relatedColumnDetails
+			groupByColumn: 'New dynamic changes LS Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New dynamic changes LS Fields'
+		isHidden
+		lineageTag: 2a649487-14f5-4530-b949-1465860810cb
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'New dynamic changes LS Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New dynamic changes LS Order'
+		isHidden
+		formatString: 0
+		lineageTag: b2ac7793-f128-4d61-a497-665456e70738
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New dynamic changes LS' = calculated
+		mode: import
+		source =
+				{
+				    ("Booster Units Weighted (New)", NAMEOF('dim_SalesForecastDeals_AFAS'[Booster Units Weighted (New)]), 0),
+				    ("Mobile Units Weighted (New)", NAMEOF('dim_SalesForecastDeals_AFAS'[Mobile Units Weighted (New)]), 1)
+				}
+
+	annotation PBI_Id = 9f31c894d1ef48ec855118d0527d017b
+

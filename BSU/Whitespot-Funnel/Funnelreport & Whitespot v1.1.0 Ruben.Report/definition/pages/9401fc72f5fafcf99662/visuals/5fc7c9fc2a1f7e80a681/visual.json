@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "5fc7c9fc2a1f7e80a681",
+  "position": {
+    "x": 790.12987012987,
+    "y": 444.15584415584414,
+    "z": 2000,
+    "height": 68.571428571428569,
+    "width": 225.97402597402595,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "New dynamic changes RD"
+                    }
+                  },
+                  "Property": "New dynamic changes RD"
+                }
+              },
+              "queryRef": "New dynamic changes RD.New dynamic changes RD",
+              "nativeQueryRef": "New dynamic changes RD",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

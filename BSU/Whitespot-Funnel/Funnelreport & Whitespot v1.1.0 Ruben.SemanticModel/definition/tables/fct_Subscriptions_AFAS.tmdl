@@ -1,0 +1,150 @@
+table fct_Subscriptions_AFAS
+	lineageTag: 7180faa4-1661-49f8-b0db-9bd3933be517
+
+	column aangemaakt_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ac93a356-0f47-4aa7-9b9b-22ae5bb7d963
+		summarizeBy: none
+		sourceColumn: aangemaakt_op
+
+		variation Variation
+			isDefault
+			relationship: f6536ee8-c178-4bcf-b5d5-f4d5a59f069b
+			defaultHierarchy: LocalDateTable_714519a8-e77b-413c-b4bd-668308ca3986.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column abonnementsnummer
+		dataType: int64
+		formatString: 0
+		lineageTag: f8bb408e-8161-4ae7-8386-41543364a137
+		summarizeBy: none
+		sourceColumn: abonnementsnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column begindatum_abonnement
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9b4a0adc-de15-45bf-9717-d266f94b3145
+		summarizeBy: none
+		sourceColumn: begindatum_abonnement
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column einddatum_abonnement
+		dataType: int64
+		formatString: 0
+		lineageTag: 3640daa5-0133-4bcc-9d82-7cf39cdd583b
+		summarizeBy: sum
+		sourceColumn: einddatum_abonnement
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_door
+		dataType: string
+		lineageTag: 67d3e047-ddb8-4ec3-8e6d-3fffcd1c7207
+		summarizeBy: none
+		sourceColumn: gewijzigd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1ca31fcc-1459-48d7-a36e-f1577d9547e1
+		summarizeBy: none
+		sourceColumn: gewijzigd_op
+
+		variation Variation
+			isDefault
+			relationship: 390de7ea-f1bb-47a2-8be0-46b69239d74e
+			defaultHierarchy: LocalDateTable_5348494e-6bcb-45da-9a2b-feaf6a6d5507.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: 1a1ecb68-2d0c-423d-92d1-a922519e6431
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 82fc4c78-90d4-4f77-bc63-0ba2bb5c4759
+		summarizeBy: sum
+		sourceColumn: nummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column opdrachtnummer_referentie
+		dataType: string
+		lineageTag: f42cacfd-d2df-4dfe-a300-2fc4864c6fe1
+		summarizeBy: none
+		sourceColumn: opdrachtnummer_referentie
+
+		annotation SummarizationSetBy = Automatic
+
+	column project
+		dataType: string
+		lineageTag: 8ab23c98-aa7f-48e8-ab29-c1961aa5073c
+		summarizeBy: none
+		sourceColumn: project
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door
+		dataType: string
+		lineageTag: 8285f4e3-32e0-47c5-9a25-e83f232becda
+		summarizeBy: none
+		sourceColumn: toegevoegd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_abonnement
+		dataType: string
+		lineageTag: 645d37dd-76c2-4a5d-ae69-52b567429ee0
+		summarizeBy: none
+		sourceColumn: type_abonnement
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9574546b-5991-4632-a456-292e9eb66d9a
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 0f3ca2cd-781a-4ff0-9849-08d306f88305
+			defaultHierarchy: LocalDateTable_1cc1de24-98ef-418b-b47b-edccd0e775f5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product = fct_Subscriptions_AFAS[type_abonnement]
+		lineageTag: 5748068a-c549-4ef2-9005-5bff4be72134
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_Subscriptions_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_Subscriptions_AFAS = Source{[Schema="stg",Item="Subscriptions_AFAS"]}[Data]
+				in
+				    stg_Subscriptions_AFAS
+
+	annotation PBI_ResultType = Table
+

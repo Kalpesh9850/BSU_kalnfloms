@@ -1,0 +1,171 @@
+table dim_Organisations_AFAS
+	lineageTag: 2ee0ef65-5bde-4463-b9d0-0cb25e1eb3ce
+
+	measure 'Total Customers' =
+			
+			DISTINCTCOUNT(dim_Organisations_AFAS[verkooprelatie])
+		formatString: 0
+		lineageTag: 0abb0d20-81ed-4732-8c8b-a5535ac6239b
+
+	measure 'Avg Unique Products per Customer ( UPDT )' =
+			
+			AVERAGEX (
+			    VALUES ( dim_Organisations_AFAS[verkooprelatie] ),
+			    CALCULATE ( DISTINCTCOUNT ( fct_SubscriptionLines_AFAS[Product_Buckets] ) )
+			)
+		lineageTag: 3541c61e-18aa-4012-97d0-3ae7ae652d21
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Unique Products per Customer (New)' =
+			
+			AVERAGEX (
+			VALUES ( dim_Organisations_AFAS[verkooprelatie] ),
+			CALCULATE ( DISTINCTCOUNT ( 'fct_Subscriptions_AFAS'[Product])
+			))
+		lineageTag: 76109fd3-d5da-46a5-ac85-1e6734a8f438
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aangemaakt_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e693ec63-7151-45b6-b6ad-f9365cc7e573
+		summarizeBy: none
+		sourceColumn: aangemaakt_op
+
+		variation Variation
+			isDefault
+			relationship: e106b493-f98b-4154-b963-7cbe256d8697
+			defaultHierarchy: LocalDateTable_a8894e2f-4cc8-49b7-a654-121fbf15c6ba.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column geblokkeerd
+		dataType: int64
+		formatString: 0
+		lineageTag: b539815b-9ae5-454c-b762-64172ced0c75
+		summarizeBy: sum
+		sourceColumn: geblokkeerd
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_door
+		dataType: string
+		lineageTag: 4badf6a6-61d0-4154-a4bb-7aee8ed94ea4
+		summarizeBy: none
+		sourceColumn: gewijzigd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e8e17795-7f09-41d5-845e-dcdc6b66048c
+		summarizeBy: none
+		sourceColumn: gewijzigd_op
+
+		variation Variation
+			isDefault
+			relationship: f153b6b7-3cb4-4d20-9af0-319553bae499
+			defaultHierarchy: LocalDateTable_89772a0b-0b72-4086-974e-c2e8c40e3f21.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: 0b31b39b-fa35-43de-b18b-67149f8498df
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 0da1fa41-dcfb-48cb-b5c9-3b48f28341d7
+		summarizeBy: none
+		sourceColumn: nummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving
+		dataType: string
+		lineageTag: 8468b293-8fca-4901-9386-01943697f928
+		summarizeBy: none
+		sourceColumn: omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door
+		dataType: string
+		lineageTag: 4211d848-abca-4371-b217-e6146aebc3f4
+		summarizeBy: none
+		sourceColumn: toegevoegd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d6a61a3-1e3a-4b20-bed9-19f430f0f68a
+		summarizeBy: none
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column xurrent_help__klant_id
+		dataType: string
+		lineageTag: 54fcad7c-0948-48d8-b67f-cbc0be41eff8
+		summarizeBy: none
+		sourceColumn: xurrent_help__klant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column xurrent_help_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 85c7cb8a-e58d-4174-b79d-8c03a9d63a4e
+		summarizeBy: sum
+		sourceColumn: xurrent_help_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column bsu__xurrent_help
+		dataType: string
+		lineageTag: b1615b3e-79c1-4474-aed4-7359352564d7
+		summarizeBy: none
+		sourceColumn: bsu__xurrent_help
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1b66636a-52be-4379-8e4c-dd8c1ebc6c50
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 75bd2ca9-c7aa-4d10-a38f-cb0c783d40be
+			defaultHierarchy: LocalDateTable_00a6e2a9-0339-4046-ab2b-dd83f889676b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Organisations_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_Organisations_AFAS = Source{[Schema="stg",Item="Organisations_AFAS"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(stg_Organisations_AFAS, each ([bsu__xurrent_help] = "Actief")),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows", {"verkooprelatie"}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Removed Duplicates", {"nummer"})
+				in
+				    #"Removed Duplicates1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

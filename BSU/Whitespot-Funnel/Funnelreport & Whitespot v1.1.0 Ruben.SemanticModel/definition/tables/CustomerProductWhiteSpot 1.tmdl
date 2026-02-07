@@ -1,0 +1,108 @@
+table 'CustomerProductWhiteSpot 1'
+	lineageTag: 004b01ce-0af3-461e-ac5b-b2e89eef6e88
+
+	measure 'Count WhiteSpot Customer' =
+			
+			DISTINCTCOUNT('CustomerProductWhiteSpot 1'[nummer])
+		formatString: 0
+		lineageTag: 5d4c7909-4046-43ab-8511-693dd6b65e81
+
+	column nummer
+		formatString: 0
+		lineageTag: cb439e75-f808-46be-b085-5b2d21ea79ac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_Organisations_AFAS[nummer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Bucket
+		lineageTag: f79246b4-cc1b-40d0-909c-5700f28e7da2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_ Products_AFAS[Product_Bucket]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		lineageTag: 0cae409e-a1af-437d-a1d8-0b759732b7aa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Customer Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		lineageTag: e56ccb4e-cfaa-44d1-ac8f-0f649f1af7c7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Status]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Icon =
+			
+			SWITCH(
+			    TRUE(),
+			    [Status] = "Wel Omzet, Wel Funnel", "🟢",
+			    [Status] = "Wel Omzet, Geen Funnel", "🔵",
+			    [Status] = "Geen Omzet, Wel Funnel", "🟡",
+			    [Status] = "Geen Omzet, Geen Funnel", "🔴"
+			    )
+		lineageTag: e21a98a1-2c9a-4436-b9bf-dffc3eceb5dc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CustomerProductWhiteSpot 1' = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				GENERATE(
+				VALUES ( 'dim_Organisations_AFAS'[nummer] ),
+				VALUES ( 'dim_ Products_AFAS'[Product_Bucket] )
+				),
+				"Customer Name",
+				LOOKUPVALUE(
+				'dim_Organisations_AFAS'[naam],
+				'dim_Organisations_AFAS'[nummer],
+				[nummer]
+				),
+				"Status",
+				VAR SelectedPG = [Product_Bucket]
+				VAR OrgNummer = [nummer]
+				VAR Verkooprelatie =
+				LOOKUPVALUE(
+				'dim_Organisations_AFAS'[verkooprelatie],
+				'dim_Organisations_AFAS'[nummer],
+				OrgNummer
+				)
+				VAR HasProduct =
+				CALCULATE(
+				COUNTROWS ( fct_SubscriptionLines_AFAS ),
+				fct_SubscriptionLines_AFAS[organization_nr] = OrgNummer,
+				fct_SubscriptionLines_AFAS[Product_Buckets] = SelectedPG
+				) > 0
+				VAR HasPrecalc =
+				CALCULATE(
+				COUNTROWS ( fct_PrecalculationsWithLines_AFAS ),
+				fct_PrecalculationsWithLines_AFAS[verkooprelatie] = Verkooprelatie,
+				LOWER(dim_SalesForecastDeals_AFAS[forecast_open_status]) = "open", //Needs to be filtered by status Open
+				TREATAS(
+				VALUES ( 'dim_ Products_AFAS'[itemcode]),
+				fct_PrecalculationsWithLines_AFAS[itemcode]
+				)
+				) > 0
+				RETURN
+				SWITCH (
+				TRUE (),
+				HasPrecalc && HasProduct, "Wel Omzet, Wel Funnel",
+				HasProduct, "Wel Omzet, Geen Funnel",
+				NOT HasProduct && HasPrecalc, "Geen Omzet, Wel Funnel",
+				TRUE, "Geen Omzet, Geen Funnel"
+				)
+				)
+
+	annotation PBI_Id = 3ee6af59a18744e5b4fb5f26d831a0dc
+

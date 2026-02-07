@@ -1,0 +1,98 @@
+table dim_FinancialMutations_AFAS
+	lineageTag: abe06fb0-7e88-42dd-8c15-86771bcc3b31
+
+	column boekstukdatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c39e490a-0ef0-4c61-bedb-4070d89e8a69
+		summarizeBy: none
+		sourceColumn: boekstukdatum
+
+		variation Variation
+			isDefault
+			relationship: 852699a2-a823-4f95-a87c-70d37e9bd6ce
+			defaultHierarchy: LocalDateTable_25ca19ec-de84-456b-8f8b-c08cf4357a8d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column datum_boeking
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 25ff210c-cc1c-4599-bdf0-fb823768386e
+		summarizeBy: none
+		sourceColumn: datum_boeking
+
+		variation Variation
+			isDefault
+			relationship: 42802e87-22d0-42ac-9b2f-22901cc45918
+			defaultHierarchy: LocalDateTable_8a951e85-e097-4cf0-a200-7c3c88020794.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column factuurnummer
+		dataType: string
+		lineageTag: b320c613-00ea-47e5-9e7d-fbdacd58b354
+		summarizeBy: none
+		sourceColumn: factuurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column kenmerk_rekening
+		dataType: string
+		lineageTag: 0b2022ba-8247-4548-a7b9-d9df046c6b55
+		summarizeBy: none
+		sourceColumn: kenmerk_rekening
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_rekening
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce37164-7221-4473-b92b-11132fde1100
+		summarizeBy: sum
+		sourceColumn: type_rekening
+
+		annotation SummarizationSetBy = Automatic
+
+	column vervaldatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0598dfb2-2473-4a6b-82a1-6d33f57e3709
+		summarizeBy: none
+		sourceColumn: vervaldatum
+
+		variation Variation
+			isDefault
+			relationship: 242b1a58-cad5-446b-95e5-f819c6fe2584
+			defaultHierarchy: LocalDateTable_0103d577-e6bf-4d6f-93ed-0114bed60452.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a62a3767-a7ad-4794-8994-624ec55b8e37
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 59048dc8-2271-4263-9ee5-120bbd99c8f1
+			defaultHierarchy: LocalDateTable_9b020e22-99b8-4d0a-9318-b35dc26ea165.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_FinancialMutations_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("sql-bsu-bespoke.database.windows.net"),
+				    #"db-bsu-bespoke" = Source{[Name="db-bsu-bespoke"]}[Data],
+				    stg_FinancialMutations_AFAS = #"db-bsu-bespoke"{[Schema="stg",Item="FinancialMutations_AFAS"]}[Data]
+				in
+				    stg_FinancialMutations_AFAS
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,1400 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "👪Organisatie",
+  "name": "91f511b86d3430649a47",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "1f9b1387007e579570c5",
+      "53853e00ae3009cd6b31",
+      "5fe4ecbee0be7c2e3215",
+      "b09c0f2f9869900e1c21",
+      "c9fb2ae5a4c9da579cd0",
+      "91c49d9376b7e8d34d82",
+      "04043d3ba047dd36598b",
+      "035dbcc00d605124d027",
+      "8796bd000014cd0b633b",
+      "47f5b379b88a174d739e",
+      "86f2a6f54838de660d54",
+      "8fb0c5d4b1d504084029",
+      "6ef5ad733b0ced797c46"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "08ed961c0071694a0211",
+    "sections": {
+      "08ed961c0071694a0211": {
+        "visualContainers": {
+          "92c3f7b11e601d000c0e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1b08913932a98e9c6f99",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Total Deals (New)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "ad93069eea677a89589e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "410eb9b951e2d7428367",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deals Won (New)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "4cdfda75c0b22898aee7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "53a0afbc52faac07c48c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deals Open (New)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "949215635d1b221eb5a5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "193ff423aa35dbabde7a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deals Lost (New)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "b81ffff76e0da2abea56": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f9d6254c02a16d297344",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "persoon_naam"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "76606841bbdd30c12437",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "bsu__strategie_forecast"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "393fc641ce0bbe748fee",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "broncampagne"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5a4c9640e09dca19f823",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "Deal Status"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "49dd9e785ae0277f20ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "fase"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a6c5e6b90e7933f739ff",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "Forecast URL"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7eda43e7f13d0dd97d67",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "forecastid"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3b9a4f8cb868d643404d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "forecastgroep"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5c46c23655670d645c56",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Booster Units Weighted (New)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6c966d119117bae6d983",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Mobile Units Weighted (New)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a368d3f63b4dc3204a56",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Weighted One-time Revenue"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "73d52914c26434d8e26d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Delta Omzet Gewogen"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "59effbbf44c492229487",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "oude_omzetwaarde"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f6642793122877ee06b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_Organisations_AFAS"
+                            }
+                          },
+                          "Property": "naam"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "991b4f5cb90eeaa7642c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deal %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6bd0e0753b3ea28aa68f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "One-time Revenue final"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c21e47fd4df3a4e556ff",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "MRR_final"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67b11d1e0404bdfe334d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Weighted MRR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "caf6c0daa4f3b6ce3c08",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dim_SalesForecastDeals_AFAS"
+                            }
+                          },
+                          "Property": "aangemaakt_op"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Booster Units Weighted (New)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "forecastid"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "93358709e0e020da56ae": {
+            "filters": {
+              "byName": {
+                "41e8f3aa68539583a1b3": {
+                  "name": "41e8f3aa68539583a1b3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deal Status"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "95a49b8d399ed343348f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Weighted One-time Revenue"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "19d1e187bba621dd3594",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Weighted MRR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "61cf35b94b8d9b6c09ac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3ebb6dd7c1e2c955c5d8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c4c7735400658e98072d": {
+            "filters": {
+              "byName": {
+                "b41754236c9a4a50110a": {
+                  "name": "b41754236c9a4a50110a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Deal Status"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "1fe569c5c906ac4f9cdf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Booster Units Weighted (New)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f42c915da443d0ed8852",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Mobile Units Weighted (New)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1735dba33b7ddcc1805e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "704c5c66573d84ce4e80",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_SalesForecastDeals_AFAS"
+                        }
+                      },
+                      "Property": "Valdatum"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b55d34e7390d00172333": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c9fb2ae5a4c9da579cd0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e72043285d6d9102da4b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "91c49d9376b7e8d34d82": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "988f5e6c5e0842bafd36",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "04043d3ba047dd36598b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ba34b8de2af5b8a6e37f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "95be0191ababba000520": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bde7301038b74081e14c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "23979e4ba353eed06d06": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0355b2c8ed698b723433": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ba5578c98d6eca90073e": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "53853e00ae3009cd6b31": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "86f2a6f54838de660d54": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "42d5fec13efa9063b68b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8fb0c5d4b1d504084029": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1b7d48db5dc71fbc6544",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6ef5ad733b0ced797c46": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "47feb782b25095df9c8c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "035dbcc00d605124d027": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b099dbbb7bf5e621b912",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8796bd000014cd0b633b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e5a31e863ff788f51850",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "Quarter"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "47f5b379b88a174d739e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4f1f794ff8da304bf6f9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Calendar"
+                        }
+                      },
+                      "Property": "MonthName"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "3095ffbabe33061e2996": {
+            "isHidden": false,
+            "children": {
+              "5fe4ecbee0be7c2e3215": {
+                "isHidden": true
+              },
+              "b09c0f2f9869900e1c21": {
+                "isHidden": false
+              },
+              "1f9b1387007e579570c5": {
+                "isHidden": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
