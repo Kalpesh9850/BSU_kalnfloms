@@ -326,3 +326,9 @@ relationship f4ea4f02-bacf-8527-0227-0c3178a8e136
 	fromColumn: fct_SalesInvoiceLines_AFAS.itemcode
 	toColumn: 'dim_ Products_AFAS'.itemcode
 
+relationship 8b49802e-4777-850e-8840-c94f101d0120
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'stg OrganisationsComplete_AFAS'.nummer
+	toColumn: dim_Organisations_AFAS.nummer
+

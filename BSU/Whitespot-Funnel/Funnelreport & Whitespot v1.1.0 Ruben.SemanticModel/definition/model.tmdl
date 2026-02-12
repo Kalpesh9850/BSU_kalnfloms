@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["dim_Organisations_AFAS","dim_Employees_AFAS","dim_Projects_AFAS","dim_SalesForecastDeals_AFAS","fct_PrecalculationsWithLines_AFAS","fct_Subscriptions_AFAS","fct_BSU_KPI_Targets_AFAS","fct_SubscriptionLines_AFAS","dim_ Products_AFAS","_Measures","dim_SalesInvoices_AFAS","fct_SalesInvoiceLines_AFAS","dim_FinancialMutations_AFAS"]
+annotation PBI_QueryOrder = ["dim_Organisations_AFAS","dim_Employees_AFAS","dim_Projects_AFAS","dim_SalesForecastDeals_AFAS","fct_PrecalculationsWithLines_AFAS","fct_Subscriptions_AFAS","fct_BSU_KPI_Targets_AFAS","fct_SubscriptionLines_AFAS","dim_ Products_AFAS","_Measures","dim_SalesInvoices_AFAS","fct_SalesInvoiceLines_AFAS","dim_FinancialMutations_AFAS","stg OrganisationsComplete_AFAS"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -82,6 +82,7 @@ ref table LocalDateTable_0103d577-e6bf-4d6f-93ed-0114bed60452
 ref table LocalDateTable_9b020e22-99b8-4d0a-9318-b35dc26ea165
 ref table 'New dynamic changes LS'
 ref table 'New dynamic changes RD'
+ref table 'stg OrganisationsComplete_AFAS'
 
 ref cultureInfo en-US
 

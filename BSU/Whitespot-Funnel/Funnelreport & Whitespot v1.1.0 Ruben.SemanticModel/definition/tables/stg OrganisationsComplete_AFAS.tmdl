@@ -1,0 +1,66 @@
+table 'stg OrganisationsComplete_AFAS'
+	lineageTag: ff928845-1f92-485d-96f7-fa09f685dfee
+
+	column is_debiteur
+		dataType: string
+		lineageTag: 419d8751-0b24-4a1a-9dae-6322533c40ba
+		summarizeBy: none
+		sourceColumn: is_debiteur
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: 72da13b6-4ce5-460a-98b0-3cede094ed75
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a1fde6c-6622-4086-99a0-ca1dd6060acb
+		summarizeBy: none
+		sourceColumn: nummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: efbb8f85-4fdf-4619-a79a-dae6340b9230
+		summarizeBy: sum
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie_prospect
+		dataType: string
+		lineageTag: ebe1fee8-a052-449d-a4dd-9b6b8e5bf4ff
+		summarizeBy: none
+		sourceColumn: verkooprelatie_prospect
+
+		annotation SummarizationSetBy = Automatic
+
+	column volledig_blokkeren__niet_meer_zichtbaar
+		dataType: string
+		lineageTag: bd9244df-d62c-4baf-b4a2-4ad68cb381d0
+		summarizeBy: none
+		sourceColumn: volledig_blokkeren__niet_meer_zichtbaar
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'stg OrganisationsComplete_AFAS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_OrganisationsComplete_AFAS = Source{[Schema="stg",Item="OrganisationsComplete_AFAS"]}[Data]
+				in
+				    stg_OrganisationsComplete_AFAS
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
