@@ -1,0 +1,395 @@
+table fct_SubscriptionLines_AFAS
+	lineageTag: 8163fcc5-a7d6-4b05-bc4b-7885d7e59d60
+
+	measure 'Total Products' = SUM(fct_SubscriptionLines_AFAS[aantal])
+		formatString: 0
+		lineageTag: 57d71f83-f82b-4e84-8265-0db2db589229
+
+	column Created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5946ac04-6377-40d6-b7ee-453aa416fc71
+		summarizeBy: none
+		sourceColumn: Created_at
+
+		variation Variation
+			isDefault
+			relationship: 35191687-79ef-4a79-ac7d-87fc45d5715f
+			defaultHierarchy: LocalDateTable_4175baf2-342e-4303-8e38-6d48953deb6c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column aantal
+		dataType: double
+		lineageTag: 25c8c231-594d-4093-b228-48faf450cd84
+		summarizeBy: sum
+		sourceColumn: aantal
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aantal_decimalen
+		dataType: int64
+		formatString: 0
+		lineageTag: c3757fdb-52a7-4071-a8e6-59526101f72c
+		summarizeBy: sum
+		sourceColumn: aantal_decimalen
+
+		annotation SummarizationSetBy = Automatic
+
+	column begindatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 82609b42-8956-4bb4-9725-9e2145efec5b
+		summarizeBy: none
+		sourceColumn: begindatum
+
+		variation Variation
+			isDefault
+			relationship: 4f5e0ada-6998-483a-8623-3000c28db2d7
+			defaultHierarchy: LocalDateTable_57fb357f-6c64-47cb-b19e-df08280dd00a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column bijgewerkt_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d11058cd-bb3a-47a5-ad37-4fab7a02897e
+		summarizeBy: none
+		sourceColumn: bijgewerkt_op
+
+		variation Variation
+			isDefault
+			relationship: 4defb88d-26fb-461a-a113-ef57e9d807e2
+			defaultHierarchy: LocalDateTable_4bab1bff-785f-42fc-807a-cb0edeffd182.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column bron_relatienaam
+		dataType: string
+		lineageTag: 5b1fc507-1453-4819-930e-10b89c1ab817
+		summarizeBy: none
+		sourceColumn: bron_relatienaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column bronregel
+		dataType: int64
+		formatString: 0
+		lineageTag: 88f83d6d-80df-46c8-a5c9-365ae5bbb9b2
+		summarizeBy: sum
+		sourceColumn: bronregel
+
+		annotation SummarizationSetBy = Automatic
+
+	column cyclus_facturering
+		dataType: string
+		lineageTag: 04fc5b59-b240-457a-a8ea-468ed6b39cfe
+		summarizeBy: none
+		sourceColumn: cyclus_facturering
+
+		annotation SummarizationSetBy = Automatic
+
+	column einddatum
+		dataType: int64
+		formatString: 0
+		lineageTag: f4d662ea-c45c-41be-873d-f355f7748f0e
+		summarizeBy: sum
+		sourceColumn: einddatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column factureren_vanaf
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dd749c25-dc5c-4ade-bf6b-3d604b55d5af
+		summarizeBy: none
+		sourceColumn: factureren_vanaf
+
+		variation Variation
+			isDefault
+			relationship: 6a8c13f4-1689-4bb9-b328-3d92efdba135
+			defaultHierarchy: LocalDateTable_1ccba9b5-c531-4ab2-a515-aef830cfa653.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column gefactureerd_t_m
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1359ba15-7b9a-4cae-ac4d-26c79b190128
+		summarizeBy: none
+		sourceColumn: gefactureerd_t_m
+
+		variation Variation
+			isDefault
+			relationship: 0f16e12a-0de5-4787-95af-fffdfabf6675
+			defaultHierarchy: LocalDateTable_74582408-2291-42d9-89a8-522e420cba2d.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column gefactureerd_tot_einddatum
+		dataType: int64
+		formatString: 0
+		lineageTag: 94dd51fc-47b5-4cdd-9ec0-50418cfffafb
+		summarizeBy: sum
+		sourceColumn: gefactureerd_tot_einddatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_door
+		dataType: string
+		lineageTag: 168b1198-a23f-4787-a12c-de15430ebeb6
+		summarizeBy: none
+		sourceColumn: gewijzigd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column gewijzigd_op
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 75ea278b-6dc1-41d3-a1cd-08ba519863ee
+		summarizeBy: none
+		sourceColumn: gewijzigd_op
+
+		variation Variation
+			isDefault
+			relationship: 08327ada-03f9-4228-b682-611de068e3f7
+			defaultHierarchy: LocalDateTable_9f98ad8f-6e0c-42bd-a795-af38b11dc063.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column irma_nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 5086d55b-34fa-42c4-b09b-691c47bb88cf
+		summarizeBy: sum
+		sourceColumn: irma_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_item
+		dataType: string
+		lineageTag: d0a96cf9-fb95-4480-8914-6b8b9fbd05ce
+		summarizeBy: none
+		sourceColumn: item_item
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemcode
+		dataType: string
+		lineageTag: fc2f92ff-527c-4c19-904d-85293cc92a61
+		summarizeBy: none
+		sourceColumn: itemcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column korting
+		dataType: int64
+		formatString: 0
+		lineageTag: d2a17070-b02b-4d2b-9ad1-badb86368ff7
+		summarizeBy: sum
+		sourceColumn: korting
+
+		annotation SummarizationSetBy = Automatic
+
+	column kortingspercentage
+		dataType: int64
+		formatString: 0
+		lineageTag: e5357f0a-9671-44d5-91ac-667e938c998d
+		summarizeBy: sum
+		sourceColumn: kortingspercentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column leverancier
+		dataType: int64
+		formatString: 0
+		lineageTag: ff332c1f-24ff-496f-9919-6df49e3d3685
+		summarizeBy: sum
+		sourceColumn: leverancier
+
+		annotation SummarizationSetBy = Automatic
+
+	column nieuw_artikel
+		dataType: int64
+		formatString: 0
+		lineageTag: dde15ff7-278e-4294-853a-5c4e95d3b285
+		summarizeBy: sum
+		sourceColumn: nieuw_artikel
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer_abonnement
+		dataType: int64
+		formatString: 0
+		lineageTag: 8257098a-ec8e-479d-a5e1-009efb1d12ee
+		summarizeBy: none
+		sourceColumn: nummer_abonnement
+
+		annotation SummarizationSetBy = Automatic
+
+	column originele_prijs
+		dataType: double
+		lineageTag: 7e53b722-72f8-40f4-934d-1e23ba1a76d5
+		summarizeBy: sum
+		sourceColumn: originele_prijs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column presentatievolgorde
+		dataType: int64
+		formatString: 0
+		lineageTag: 45289efd-3d27-44d7-863d-f2c5f417694e
+		summarizeBy: sum
+		sourceColumn: presentatievolgorde
+
+		annotation SummarizationSetBy = Automatic
+
+	column reden_beeindiging
+		dataType: string
+		lineageTag: faf14727-9c69-440b-88db-3ca4fc039a15
+		summarizeBy: none
+		sourceColumn: reden_beeindiging
+
+		annotation SummarizationSetBy = Automatic
+
+	column regelnummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 50852ab4-7f1c-43a9-b26f-8b2a7c54d3f2
+		summarizeBy: sum
+		sourceColumn: regelnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_contactmoment
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6508908b-c333-46b2-a7e0-7fd9a3b997da
+		summarizeBy: none
+		sourceColumn: sales_contactmoment
+
+		variation Variation
+			isDefault
+			relationship: ebb54d4a-10bc-4609-96b1-1fcbd7c47665
+			defaultHierarchy: LocalDateTable_dc811eda-44f2-498e-a740-e599cb66ab1f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column toegevoegd_door
+		dataType: string
+		lineageTag: 66eabe49-6776-450f-a54b-a06e37eb14bf
+		summarizeBy: none
+		sourceColumn: toegevoegd_door
+
+		annotation SummarizationSetBy = Automatic
+
+	column url
+		dataType: string
+		lineageTag: dd1f9438-3ecf-4118-a7b3-b7d5b0323602
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkoop_crediteren
+		dataType: int64
+		formatString: 0
+		lineageTag: 219f9250-a1d5-4ae1-a635-f4381bdad751
+		summarizeBy: sum
+		sourceColumn: verkoop_crediteren
+
+		annotation SummarizationSetBy = Automatic
+
+	column verlengingsdatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 43a89342-9f9f-4d09-b036-aabb2ffe8ee0
+		summarizeBy: none
+		sourceColumn: verlengingsdatum
+
+		variation Variation
+			isDefault
+			relationship: 45c2d3ba-51be-45d4-9d7e-f2852ccec9b1
+			defaultHierarchy: LocalDateTable_ffcac100-1c62-4df2-9e9e-39ce2921fc1e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column waarde_abonnement
+		dataType: double
+		lineageTag: 3c8b0326-a681-4a17-9000-e899c665c0d2
+		summarizeBy: sum
+		sourceColumn: waarde_abonnement
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a4e6ab61-3c58-46c5-8b1c-e058d296a899
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: e1d3cd70-867d-458f-86c5-da6ad4f95f0a
+			defaultHierarchy: LocalDateTable_f2e805a4-f7b4-4d3e-954d-3a3b3b5e5192.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column organization_nr = LOOKUPVALUE(fct_Subscriptions_AFAS[nummer], fct_Subscriptions_AFAS[abonnementsnummer],fct_SubscriptionLines_AFAS[nummer_abonnement])
+		formatString: 0
+		lineageTag: 4551b89a-78d6-49ca-a0d4-ab8ae71918f0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatienr = fct_SubscriptionLines_AFAS[organization_nr]
+		formatString: 0
+		lineageTag: 694936c5-5bd2-4a20-a4aa-eb07af7a9fc3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subscription_type =
+			
+			LOOKUPVALUE(
+			             fct_Subscriptions_AFAS[type_abonnement],
+			             fct_Subscriptions_AFAS[abonnementsnummer],
+			             fct_SubscriptionLines_AFAS[nummer_abonnement])
+		lineageTag: b0f8fb01-fa2a-4387-99f4-51f57519b697
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Buckets = LOOKUPVALUE('dim_ Products_AFAS'[Product_Bucket], 'dim_ Products_AFAS'[itemcode], fct_SubscriptionLines_AFAS[itemcode])
+		lineageTag: a497ab8f-cc6a-4172-bb78-303a9d309b77
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_SubscriptionLines_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_SubscriptionLines_AFAS = Source{[Schema="stg",Item="SubscriptionLines_AFAS"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(stg_SubscriptionLines_AFAS,{{"aangemaakt_op", "Created_at"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

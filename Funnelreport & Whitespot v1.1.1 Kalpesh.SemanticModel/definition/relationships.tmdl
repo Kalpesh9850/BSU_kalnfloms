@@ -1,0 +1,328 @@
+relationship e106b493-f98b-4154-b963-7cbe256d8697
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Organisations_AFAS.aangemaakt_op
+	toColumn: LocalDateTable_a8894e2f-4cc8-49b7-a654-121fbf15c6ba.Date
+
+relationship f153b6b7-3cb4-4d20-9af0-319553bae499
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Organisations_AFAS.gewijzigd_op
+	toColumn: LocalDateTable_89772a0b-0b72-4086-974e-c2e8c40e3f21.Date
+
+relationship 75bd2ca9-c7aa-4d10-a38f-cb0c783d40be
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Organisations_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_00a6e2a9-0339-4046-ab2b-dd83f889676b.Date
+
+relationship 7ad48e50-4882-49dc-b40b-ac0e0589c744
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Employees_AFAS.created_at
+	toColumn: LocalDateTable_abee245c-9e86-41d8-84b9-092602dedd63.Date
+
+relationship b1b313ef-8a17-49b4-b96f-c15bd6ddf347
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Employees_AFAS.updated_at
+	toColumn: LocalDateTable_e66358b5-e09d-41b2-a379-48013cc35dbd.Date
+
+relationship 5310a461-8555-4338-b907-de1560d35adc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Employees_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_050f0e67-2ef7-449b-be3e-974aa581a60e.Date
+
+relationship ee0cd600-209d-4402-b8ef-2d34a6d28d2f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Projects_AFAS.aangemaakt_op
+	toColumn: LocalDateTable_7819511e-e78d-43c8-ac5c-421b180415f0.Date
+
+relationship 4614f322-bd41-429e-8ca7-6b08bf314598
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Projects_AFAS.begindatum
+	toColumn: LocalDateTable_61b5b031-7289-498f-b366-58ecfd1381bf.Date
+
+relationship 372bdc72-0642-4d9c-806c-3cc809e8bf21
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Projects_AFAS.datum_toegevoegd
+	toColumn: LocalDateTable_863fb7fd-d6fb-45b1-a805-56cc3b5cacfe.Date
+
+relationship 28283721-74b4-4382-80bf-e51807ce70b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Projects_AFAS.gewijzigd_op
+	toColumn: LocalDateTable_a8657ae2-d6d8-4066-83af-4a0ef306de0a.Date
+
+relationship f7871a47-53b0-4e7b-adf5-3c40f0740d80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_Projects_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_043e0f7c-bf15-4a2a-a613-b108794862da.Date
+
+relationship c1293c15-d3e7-496b-9d57-cf26c48fb748
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.einddatum
+	toColumn: LocalDateTable_82dcab27-ee34-4915-81e8-a785f9a269c5.Date
+
+relationship 15a6ae0c-761f-4859-ae99-7cb5713d0b19
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.gewijzigd_op
+	toColumn: LocalDateTable_3f405c9e-8704-49b2-b8ad-70d544bc7dfd.Date
+
+relationship 5b5597d0-dbc6-406f-80b4-1d58b444efc0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.soort_mutatie
+	toColumn: LocalDateTable_be27efac-070b-4062-8c68-b0cc6f0b4deb.Date
+
+relationship f80f9f23-9497-4d29-8b56-3c4bc7ca88f3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.verwachte_einddatum
+	toColumn: LocalDateTable_22ae2bb9-9777-4a12-a409-376921d07f12.Date
+
+relationship f189330c-40a5-4801-a199-3f66d1d1a14e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.werkelijke_einddatum
+	toColumn: LocalDateTable_032a49d6-63bb-46fb-9101-dc1772e1f220.Date
+
+relationship 0a8b7039-734f-49ef-ab65-df389d5e886e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_3b2235cf-262b-4b27-81e0-637e7cc68621.Date
+
+relationship a33007e4-02d4-4096-ae78-9880dcfc4ce9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_PrecalculationsWithLines_AFAS.datum
+	toColumn: LocalDateTable_2b20ceeb-e046-4303-978f-0013bfeeddf1.Date
+
+relationship 4d07b140-6af0-4f3c-8551-8cca0001fb85
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_PrecalculationsWithLines_AFAS.datum_toegevoegd
+	toColumn: LocalDateTable_2bfc5df0-afdd-4516-afd0-7a7ed1937b26.Date
+
+relationship 80408b2c-4bcf-48a3-823f-fd8b5e6e76f3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_PrecalculationsWithLines_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_31684fba-12ce-42bb-a6cd-dcea400d1cdc.Date
+
+relationship 390de7ea-f1bb-47a2-8be0-46b69239d74e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_Subscriptions_AFAS.gewijzigd_op
+	toColumn: LocalDateTable_5348494e-6bcb-45da-9a2b-feaf6a6d5507.Date
+
+relationship 0f3ca2cd-781a-4ff0-9849-08d306f88305
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_Subscriptions_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_1cc1de24-98ef-418b-b47b-edccd0e775f5.Date
+
+relationship 9f5cd460-6a1d-406b-8828-44196c258f1b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_BSU_KPI_Targets_AFAS.created_date
+	toColumn: LocalDateTable_0ca0da10-e23d-4b77-8cda-c8874000402b.Date
+
+relationship 6a61e6a6-ae8d-429d-9768-6afea418d52f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_BSU_KPI_Targets_AFAS.end_date_period
+	toColumn: LocalDateTable_8ca345c6-caa1-4515-9fcd-50b53133276f.Date
+
+relationship 80470866-6bf3-44b4-891c-5dd6aa652158
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_BSU_KPI_Targets_AFAS.start_date_period
+	toColumn: LocalDateTable_0c1cf8df-6acf-4d11-8a56-4a5c507c445b.Date
+
+relationship 971e7eb7-b1eb-41ef-aca6-5c502e0ceb7a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_BSU_KPI_Targets_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_aace9fc6-3e34-4f61-b10a-f0f2d128cc4d.Date
+
+relationship 35191687-79ef-4a79-ac7d-87fc45d5715f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.Created_at
+	toColumn: LocalDateTable_4175baf2-342e-4303-8e38-6d48953deb6c.Date
+
+relationship 4f5e0ada-6998-483a-8623-3000c28db2d7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.begindatum
+	toColumn: LocalDateTable_57fb357f-6c64-47cb-b19e-df08280dd00a.Date
+
+relationship 4defb88d-26fb-461a-a113-ef57e9d807e2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.bijgewerkt_op
+	toColumn: LocalDateTable_4bab1bff-785f-42fc-807a-cb0edeffd182.Date
+
+relationship 6a8c13f4-1689-4bb9-b328-3d92efdba135
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.factureren_vanaf
+	toColumn: LocalDateTable_1ccba9b5-c531-4ab2-a515-aef830cfa653.Date
+
+relationship 0f16e12a-0de5-4787-95af-fffdfabf6675
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.gefactureerd_t_m
+	toColumn: LocalDateTable_74582408-2291-42d9-89a8-522e420cba2d.Date
+
+relationship 08327ada-03f9-4228-b682-611de068e3f7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.gewijzigd_op
+	toColumn: LocalDateTable_9f98ad8f-6e0c-42bd-a795-af38b11dc063.Date
+
+relationship ebb54d4a-10bc-4609-96b1-1fcbd7c47665
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.sales_contactmoment
+	toColumn: LocalDateTable_dc811eda-44f2-498e-a740-e599cb66ab1f.Date
+
+relationship 45c2d3ba-51be-45d4-9d7e-f2852ccec9b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.verlengingsdatum
+	toColumn: LocalDateTable_ffcac100-1c62-4df2-9e9e-39ce2921fc1e.Date
+
+relationship e1d3cd70-867d-458f-86c5-da6ad4f95f0a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SubscriptionLines_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_f2e805a4-f7b4-4d3e-954d-3a3b3b5e5192.Date
+
+relationship AutoDetected_c9ee554e-776a-448b-989f-ca3d6af6d128
+	fromColumn: fct_BSU_KPI_Targets_AFAS.employee_id
+	toColumn: dim_Employees_AFAS.employee_id
+
+relationship 4996ac1c-98ac-5ef3-2807-b011693f8126
+	fromColumn: fct_SubscriptionLines_AFAS.nummer_abonnement
+	toColumn: fct_Subscriptions_AFAS.abonnementsnummer
+
+relationship 3a41fe9d-18cc-b295-dbd7-5c0454336ce8
+	fromColumn: dim_Projects_AFAS.nummer_forecast
+	toColumn: dim_SalesForecastDeals_AFAS.forecastid
+
+relationship 56a49ef0-6cff-4ba3-8608-3713dfa2f196
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dim_ Products_AFAS'.created_at
+	toColumn: LocalDateTable_247c6b38-d181-4bc0-87c9-62387cbd90af.Date
+
+relationship aa20bb1d-33d6-417f-9611-20ceff3669d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dim_ Products_AFAS'.updated_at
+	toColumn: LocalDateTable_8795cf43-fecc-4b1f-a4f1-662953c44303.Date
+
+relationship b8699c3f-0c3a-4d50-b4a1-7c758e32d96a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dim_ Products_AFAS'.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_0288bd25-35e4-4a1a-bf64-527eeeb9e795.Date
+
+relationship 67d3bc3f-96bd-a5ce-053d-aa9280fe493e
+	isActive: false
+	fromColumn: fct_Subscriptions_AFAS.nummer
+	toColumn: dim_Organisations_AFAS.nummer
+
+relationship 25898e55-d956-8188-d05a-945f4d1f526f
+	fromColumn: fct_PrecalculationsWithLines_AFAS.link_forecast_id
+	toColumn: dim_SalesForecastDeals_AFAS.forecastid
+
+relationship f626a62e-3119-1f81-035c-b46f60dba102
+	fromColumn: fct_SubscriptionLines_AFAS.itemcode
+	toColumn: 'dim_ Products_AFAS'.itemcode
+
+relationship 179f5bda-8322-93b0-1401-0a8075e82f57
+	isActive: false
+	fromColumn: fct_PrecalculationsWithLines_AFAS.verkooprelatie
+	toColumn: dim_Organisations_AFAS.verkooprelatie
+
+relationship 748f63f3-677c-04e9-8190-c7b609aca3c1
+	fromColumn: fct_PrecalculationsWithLines_AFAS.itemcode
+	toColumn: 'dim_ Products_AFAS'.itemcode
+
+relationship 02e92468-eeee-69a3-b20e-edb46a7b2ddf
+	fromColumn: fct_SubscriptionLines_AFAS.organization_nr
+	toColumn: dim_Organisations_AFAS.nummer
+
+relationship f6536ee8-c178-4bcf-b5d5-f4d5a59f069b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_Subscriptions_AFAS.aangemaakt_op
+	toColumn: LocalDateTable_714519a8-e77b-413c-b4bd-668308ca3986.Date
+
+relationship 8ddca246-7d0a-a57d-5d4c-1f84c1001940
+	fromColumn: fct_Subscriptions_AFAS.begindatum_abonnement
+	toColumn: dim_Calendar.Date
+
+relationship 15a8e2c1-9fec-48f9-82d1-256683f04bd8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.begindatum
+	toColumn: LocalDateTable_e84879c6-6caa-4846-9464-c172c5d4e335.Date
+
+relationship c5f8f3fe-1592-4d01-b3f7-9d3685379b99
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.aangemaakt_op
+	toColumn: LocalDateTable_a4d1df0d-d9de-42f0-9735-a6c108b301ce.Date
+
+relationship 745ac534-b02e-a4a8-22bb-fd0908dc3327
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_SalesForecastDeals_AFAS.verantwoordelijke
+	toColumn: dim_Employees_AFAS.employee_id
+
+relationship c780f551-cb61-7056-b468-7c17191931d0
+	fromColumn: dim_SalesForecastDeals_AFAS.verkooprelatie
+	toColumn: dim_Organisations_AFAS.verkooprelatie
+
+relationship d84019eb-bf57-4196-9370-ad16dac21177
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesForecastDeals_AFAS.'aangemaakt_op date'
+	toColumn: LocalDateTable_a97eff0d-f86c-435d-9f25-03b1b15cbe05.Date
+
+relationship d0b12dd2-db3f-51db-88ec-32de35a9c0ef
+	fromColumn: dim_SalesForecastDeals_AFAS.Valdatum
+	toColumn: dim_Calendar.Date
+
+relationship afd03603-46c5-e080-68f4-0d15cec51966
+	fromColumn: 'CustomerProductWhiteSpot 1'.nummer
+	toColumn: dim_Organisations_AFAS.nummer
+
+relationship ccafe0c0-9b7f-f6ab-c48b-a1cf81602342
+	toCardinality: many
+	fromColumn: 'CustomerProductWhiteSpot 1'.Product_Bucket
+	toColumn: 'dim_ Products_AFAS'.Product_Bucket
+
+relationship e31ffd99-822f-45ef-a7cb-778a8b7d1e0d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesInvoices_AFAS.boekstukdatum
+	toColumn: LocalDateTable_06076cad-c717-487e-8b2f-26d230a98f3c.Date
+
+relationship 31f9688c-f656-4523-9b8d-ccc9bdfb8021
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesInvoices_AFAS.factuurdatum
+	toColumn: LocalDateTable_b649689a-3fa6-4d1e-baaa-867a174ed95f.Date
+
+relationship 63358f90-7dda-4bf1-9ddb-481cf2065742
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_SalesInvoices_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_1e9a34ac-e250-469f-9ce6-8480f7d210ed.Date
+
+relationship eed8c9bb-4cb7-4785-8517-a40757d5f3be
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fct_SalesInvoiceLines_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_e3c10851-5652-4416-a46d-c14d079740db.Date
+
+relationship 852699a2-a823-4f95-a87c-70d37e9bd6ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_FinancialMutations_AFAS.boekstukdatum
+	toColumn: LocalDateTable_25ca19ec-de84-456b-8f8b-c08cf4357a8d.Date
+
+relationship 42802e87-22d0-42ac-9b2f-22901cc45918
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_FinancialMutations_AFAS.datum_boeking
+	toColumn: LocalDateTable_8a951e85-e097-4cf0-a200-7c3c88020794.Date
+
+relationship 242b1a58-cad5-446b-95e5-f819c6fe2584
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_FinancialMutations_AFAS.vervaldatum
+	toColumn: LocalDateTable_0103d577-e6bf-4d6f-93ed-0114bed60452.Date
+
+relationship 59048dc8-2271-4263-9ee5-120bbd99c8f1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_FinancialMutations_AFAS.dataddo_extraction_timestamp
+	toColumn: LocalDateTable_9b020e22-99b8-4d0a-9318-b35dc26ea165.Date
+
+relationship 81882e08-7099-0c75-92f8-0ceefa05894e
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_SalesInvoices_AFAS.factuurnummer
+	toColumn: dim_FinancialMutations_AFAS.factuurnummer
+
+relationship db937386-bb67-af92-f04d-18d607b7208a
+	fromColumn: fct_SalesInvoiceLines_AFAS.factuurnummer
+	toColumn: dim_SalesInvoices_AFAS.factuurnummer
+
+relationship f4ea4f02-bacf-8527-0227-0c3178a8e136
+	fromColumn: fct_SalesInvoiceLines_AFAS.itemcode
+	toColumn: 'dim_ Products_AFAS'.itemcode
+

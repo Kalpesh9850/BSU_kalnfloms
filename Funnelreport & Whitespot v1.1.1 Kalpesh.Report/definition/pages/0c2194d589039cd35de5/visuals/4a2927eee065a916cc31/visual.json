@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "4a2927eee065a916cc31",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 101.6133956914726,
+    "width": 260.17495819904525,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "🔴 Geen omzet, geen funnel"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "🟡 Geen omzet, wel funnel"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "🔵 Wel omzet, geen funnel"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "🟢 Wel omzet, wel funnel"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "a58f890fe101a2ec7d0c"
+}

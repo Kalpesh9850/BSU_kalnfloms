@@ -1,0 +1,201 @@
+table 'dim_ Products_AFAS'
+	lineageTag: 022e7567-4a59-4f0d-9870-82e1fbc6d519
+
+	column presentationgroup_desc
+		dataType: string
+		lineageTag: 96f8db0e-5d5d-4ec3-b8d4-a15cc25b87d2
+		summarizeBy: none
+		sourceColumn: presentationgroup_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentationgroup_id
+		dataType: string
+		lineageTag: cd3fc9bf-0c02-4744-b7d7-df0ca05e25fb
+		summarizeBy: none
+		sourceColumn: presentationgroup_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentationsubgroup_id
+		dataType: string
+		lineageTag: c28c7ea6-dcf4-4449-b651-ad2059a382c7
+		summarizeBy: none
+		sourceColumn: presentationsubgroup_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentationheadgroup_id
+		dataType: string
+		lineageTag: 42dd7768-9c6a-48d5-adee-809467baa069
+		summarizeBy: none
+		sourceColumn: presentationheadgroup_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentationsubgroup_desc
+		dataType: string
+		lineageTag: 4ee65061-6494-4779-b9f9-6b08a05da598
+		summarizeBy: none
+		sourceColumn: presentationsubgroup_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentationheadgroup_desc
+		dataType: string
+		lineageTag: 367e0d0a-d3ba-41c6-a3b6-5f33d5805b28
+		summarizeBy: none
+		sourceColumn: presentationheadgroup_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b334cc93-817e-4844-bdb8-a11608eff46a
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 56a49ef0-6cff-4ba3-8608-3713dfa2f196
+			defaultHierarchy: LocalDateTable_247c6b38-d181-4bc0-87c9-62387cbd90af.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 002a5880-6e84-470f-ae3b-f3b74c3e9164
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: aa20bb1d-33d6-417f-9611-20ceff3669d3
+			defaultHierarchy: LocalDateTable_8795cf43-fecc-4b1f-a4f1-662953c44303.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemcode
+		dataType: string
+		lineageTag: 6244b775-0cee-4902-8e3c-3093dfd247cf
+		summarizeBy: none
+		sourceColumn: itemcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ac434c2-508a-46b1-bec6-1988816f34fa
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: b8699c3f-0c3a-4d50-b4a1-7c758e32d96a
+			defaultHierarchy: LocalDateTable_0288bd25-35e4-4a1a-bf64-527eeeb9e795.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: a1404004-8535-411f-ae17-96e53c0b5396
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column notes
+		dataType: string
+		lineageTag: f78c1827-5a74-4250-9915-bb9a6059d38b
+		summarizeBy: none
+		sourceColumn: notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 6b6a28b2-165a-477a-9f31-5fd373158615
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Bucket =
+			
+			SWITCH(
+			    TRUE(),
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_AL_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_HA_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_RO_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_AD_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_DA_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_SE_A", "Abonnementen OVERIG",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_BO_Q", "BOOSTER",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_SO_A", "BSU SOFTWARE",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_CL_A", "BSU SOFTWARE",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_CO_A", "KPN NETWERK",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_IN_A", "KPN NETWERK",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_VO_A", "KPN VOIP",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_MO_A", "MOBIEL",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_MO_Q", "MOBIEL",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_NE_A", "NETWERK",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_AL_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_AL_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_BO_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_BO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_HA_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_HA_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_AD_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_CL_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_CO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_CO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_CX_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_DA_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_IN_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_MO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_SE_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "B_K_VO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_NE_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_NE_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_RO_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_RO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_SO_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "BSU_SO_U", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_AD_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_CL_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_CO_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_CX_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_DA_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_IN_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_MO_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_SE_E", "Overig",
+			    'dim_ Products_AFAS'[presentationgroup_id] = "KPN_VO_E", "Overig",
+			    "Unkown"
+			    )
+		lineageTag: 460b2145-6412-4303-a965-26f8b6283327
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_ Products_AFAS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_Products_AFAS = Source{[Schema="stg",Item="Products_AFAS"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(stg_Products_AFAS,"(Offertetool)","",Replacer.ReplaceText,{"presentationgroup_desc"}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Replaced Value",{{"presentationgroup_desc", Text.Trim, type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Trimmed Text","(Offertetool)","",Replacer.ReplaceText,{"presentationsubgroup_desc"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","(Offertetool)","",Replacer.ReplaceText,{"presentationheadgroup_desc"}),
+				    #"Trimmed Text1" = Table.TransformColumns(#"Replaced Value2",{{"presentationsubgroup_desc", Text.Trim, type text}, {"presentationheadgroup_desc", Text.Trim, type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Trimmed Text1", {"itemcode"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

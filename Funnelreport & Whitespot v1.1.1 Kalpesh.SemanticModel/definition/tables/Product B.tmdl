@@ -1,0 +1,20 @@
+table 'Product B'
+	lineageTag: e8b10d3f-db1c-43a7-8e73-f29378ea3a9a
+
+	column Product_Bucket
+		lineageTag: 4ebc93b0-31c3-4bf3-8854-01293f1a3b88
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_ Products_AFAS[Product_Bucket]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Product B' = calculated
+		mode: import
+		source =
+				
+				DISTINCT('dim_ Products_AFAS'[Product_Bucket]
+				)
+
+	annotation PBI_Id = a65ea366515249a091bdab3cf3a32f25
+

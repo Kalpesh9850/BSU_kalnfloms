@@ -1,0 +1,48 @@
+table 'New dynamic changes RD'
+	lineageTag: c4be2255-c91a-4ab1-be2c-0ed4299470ff
+
+	column 'New dynamic changes RD'
+		lineageTag: 0ecc9bec-65b4-49d0-a4b8-ee76aa21e020
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'New dynamic changes RD Order'
+
+		relatedColumnDetails
+			groupByColumn: 'New dynamic changes RD Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New dynamic changes RD Fields'
+		isHidden
+		lineageTag: 37c6c7dd-1590-4002-adb3-5c4d59bb3f1e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'New dynamic changes RD Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New dynamic changes RD Order'
+		isHidden
+		formatString: 0
+		lineageTag: 7ecf89dc-b8dd-4533-b4ff-4ee0b06e661e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New dynamic changes RD' = calculated
+		mode: import
+		source =
+				{
+				    ("Weighted MRR", NAMEOF('dim_SalesForecastDeals_AFAS'[Weighted MRR]), 0),
+				    ("Weighted One-time Revenue", NAMEOF('dim_SalesForecastDeals_AFAS'[Weighted One-time Revenue]), 1)
+				}
+
+	annotation PBI_Id = b6b571e2536f42e2a3364fe8d09cfffd
+

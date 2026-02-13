@@ -1,0 +1,101 @@
+table dim_SalesInvoices_AFAS
+	lineageTag: 99b02e5e-1ff2-422b-b311-247fdcb43b0c
+
+	column administratie
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b46de92-8284-4af0-9f34-f48262256778
+		summarizeBy: sum
+		sourceColumn: administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column boekstukdatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 989f04f9-30d5-41b8-8857-02e30fe0d750
+		summarizeBy: none
+		sourceColumn: boekstukdatum
+
+		variation Variation
+			isDefault
+			relationship: e31ffd99-822f-45ef-a7cb-778a8b7d1e0d
+			defaultHierarchy: LocalDateTable_06076cad-c717-487e-8b2f-26d230a98f3c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column factuurdatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 24dd82a9-4709-4e1b-8941-7a3565763a60
+		summarizeBy: none
+		sourceColumn: factuurdatum
+
+		variation Variation
+			isDefault
+			relationship: 31f9688c-f656-4523-9b8d-ccc9bdfb8021
+			defaultHierarchy: LocalDateTable_b649689a-3fa6-4d1e-baaa-867a174ed95f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column factuurnummer
+		dataType: string
+		lineageTag: 093d2216-e576-43db-bd07-1f5101478337
+		summarizeBy: none
+		sourceColumn: factuurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column naam
+		dataType: string
+		lineageTag: c5c84b8b-4df0-466d-9e03-04de5091dcea
+		summarizeBy: none
+		sourceColumn: naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 40e4153f-42fd-4ea9-b2d2-a89ac731f9f6
+		summarizeBy: sum
+		sourceColumn: nummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: 38d06aef-562b-41b7-86af-7c33171160c4
+		summarizeBy: sum
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09019926-7046-4161-936d-b613eaf6f548
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 63358f90-7dda-4bf1-9ddb-481cf2065742
+			defaultHierarchy: LocalDateTable_1e9a34ac-e250-469f-9ce6-8480f7d210ed.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_SalesInvoices_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_SalesInvoices_AFAS = Source{[Schema="stg",Item="SalesInvoices_AFAS"]}[Data]
+				in
+				    stg_SalesInvoices_AFAS
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

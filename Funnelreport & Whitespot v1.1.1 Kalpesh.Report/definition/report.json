@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY25SU11",
+      "reportVersionAtImport": {
+        "visual": "2.4.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY25SU11",
+          "path": "BaseThemes/CY25SU11.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Funnelraportage_Dashboard_bagr2279842544540881.png",
+          "path": "Funnelraportage_Dashboard_bagr2279842544540881.png",
+          "type": "Image"
+        },
+        {
+          "name": "Whitespot_Dashboard_baground11500967453758104.png",
+          "path": "Whitespot_Dashboard_baground11500967453758104.png",
+          "type": "Image"
+        },
+        {
+          "name": "Ticket_Management_not_filled14197571981612245.svg",
+          "path": "Ticket_Management_not_filled14197571981612245.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Ticket_Management_filled5805313767210922.svg",
+          "path": "Ticket_Management_filled5805313767210922.svg",
+          "type": "Image"
+        },
+        {
+          "name": "SLA_Tracker_not_filled13768141756004793.svg",
+          "path": "SLA_Tracker_not_filled13768141756004793.svg",
+          "type": "Image"
+        },
+        {
+          "name": "SLA_Tracker_filled32926838353246757.svg",
+          "path": "SLA_Tracker_filled32926838353246757.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Logo_white_-_Infolumos9920940393442791.png",
+          "path": "Logo_white_-_Infolumos9920940393442791.png",
+          "type": "Image"
+        },
+        {
+          "name": "BSU_Lobby7873668629017001.png",
+          "path": "BSU_Lobby7873668629017001.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

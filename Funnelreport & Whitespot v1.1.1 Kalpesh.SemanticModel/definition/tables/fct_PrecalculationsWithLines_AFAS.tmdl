@@ -1,0 +1,358 @@
+table fct_PrecalculationsWithLines_AFAS
+	lineageTag: a569c394-3679-4070-bf1f-176b298da4b0
+
+	measure 'Cross-sell %' = ```
+			
+			VAR RowProduct = SELECTEDVALUE('Product A'[Product_Bucket]) 
+			VAR ColProduct = SELECTEDVALUE('Product B'[Product_Bucket])
+			var hasboth=not ISBLANK(RowProduct)&& not ISBLANK(ColProduct)
+			-- 1. Get List of Customers who have the Row Product (Denominator)
+			-- We use CROSSFILTER to force Subscriptions to filter Organisations
+			
+			var customerwithrowbucket=
+			CALCULATETABLE(
+			    VALUES(fct_SubscriptionLines_AFAS[verkooprelatienr]),
+			    KEEPFILTERS('dim_ Products_AFAS'[Product_Bucket]=RowProduct))
+			
+			
+			VAR Customerwithcolbucket= 
+			    CALCULATETABLE(
+			        VALUES(fct_SubscriptionLines_AFAS[verkooprelatienr]),
+			        KEEPFILTERS('dim_ Products_AFAS'[Product_Bucket]=ColProduct
+			      
+			    ))
+			
+			-- 2. Get List of Customers who have the Column Product
+			
+			
+			        VAR overlap= INTERSECT(customerwithrowbucket,Customerwithcolbucket)
+			        var denominator=COUNTROWS(Customerwithcolbucket)
+			        var numerator= COUNTROWS(overlap)
+			
+			RETURN
+			
+			IF(hasboth,divide(numerator,denominator,0),0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 26ab1ef4-18f6-4328-97cb-2f1a6e0f4d31
+
+	measure 'Cross-sell %newer' = ```
+			
+			VAR RowProduct = SELECTEDVALUE('Product A'[Product_Bucket]) 
+			VAR ColProduct = SELECTEDVALUE('Product B'[Product_Bucket])
+			
+			-- 1. Get List of Customers who have the Row Product (Denominator)
+			-- We use CROSSFILTER to force Subscriptions to filter Organisations
+			VAR Customers_With_A = 
+			    CALCULATETABLE(
+			        VALUES(fct_SubscriptionLines_AFAS[organization_nr]),
+			        'fct_SubscriptionLines_AFAS'[toegevoegd_door] = RowProduct
+			
+			    )
+			
+			-- 2. Get List of Customers who have the Column Product
+			VAR Customers_With_B = 
+			    CALCULATETABLE(
+			        VALUES('dim_Organisations_AFAS'[verkooprelatie]),
+			        'fct_Subscriptions_AFAS'[Product] = ColProduct,
+			        CROSSFILTER('dim_Organisations_AFAS'[nummer], 'fct_Subscriptions_AFAS'[nummer], Both),
+			        ALL('fct_Subscriptions_AFAS')
+			    )
+			
+			-- 3. Find the overlap (Customers who have Both)
+			VAR Customers_With_Both = INTERSECT(Customers_With_A, Customers_With_B)
+			
+			-- 4. Calculate
+			VAR Numerator = COUNTROWS(Customers_With_Both)
+			VAR Denominator = COUNTROWS(Customers_With_A)
+			
+			RETURN 
+			    DIVIDE(Numerator, Denominator, 0)
+			```
+		lineageTag: c59a719e-89a7-4d45-aff6-8e52310718d7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column datum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 558b9e0e-371a-4bd6-b1b0-f04e172febdc
+		summarizeBy: none
+		sourceColumn: datum
+
+		variation Variation
+			isDefault
+			relationship: a33007e4-02d4-4096-ae78-9880dcfc4ce9
+			defaultHierarchy: LocalDateTable_2b20ceeb-e046-4303-978f-0013bfeeddf1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column datum_toegevoegd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb3b430b-454f-4e7f-9379-a2f5007060db
+		summarizeBy: none
+		sourceColumn: datum_toegevoegd
+
+		variation Variation
+			isDefault
+			relationship: 4d07b140-6af0-4f3c-8551-8cca0001fb85
+			defaultHierarchy: LocalDateTable_2bfc5df0-afdd-4516-afd0-7a7ed1937b26.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column eenheid
+		dataType: string
+		lineageTag: dafe9667-660b-4078-ac94-f1c1f9f57e47
+		summarizeBy: none
+		sourceColumn: eenheid
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecastid
+		dataType: string
+		lineageTag: c6d85825-1615-4d07-9e38-165f9f6510a1
+		summarizeBy: none
+		sourceColumn: forecastid
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemcode
+		dataType: string
+		lineageTag: ee1dac30-812b-47a4-b515-570ec39ca689
+		summarizeBy: none
+		sourceColumn: itemcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column klantnaam
+		dataType: string
+		lineageTag: 44c4318c-207a-498c-b3d7-8aaf906fc4bf
+		summarizeBy: none
+		sourceColumn: klantnaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column niveau
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e3c1159-06d2-47aa-844b-33fe3002a0f1
+		summarizeBy: sum
+		sourceColumn: niveau
+
+		annotation SummarizationSetBy = Automatic
+
+	column niveau_2
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d934e83-ff9b-41ab-b02c-abbd45d326e4
+		summarizeBy: sum
+		sourceColumn: niveau_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer_forecast
+		dataType: string
+		lineageTag: 45e0e3e5-3418-4dd3-86df-87be40ae2504
+		summarizeBy: none
+		sourceColumn: nummer_forecast
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummer_offerte
+		dataType: int64
+		formatString: 0
+		lineageTag: e92b76fb-4301-4301-b894-e4851bda042c
+		summarizeBy: sum
+		sourceColumn: nummer_offerte
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving
+		dataType: string
+		lineageTag: 5bb04c20-3659-4efc-a445-3a2874b88542
+		summarizeBy: none
+		sourceColumn: omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_2
+		dataType: int64
+		formatString: 0
+		lineageTag: c0b1afe5-80c2-431f-929e-2bcedfca61dc
+		summarizeBy: sum
+		sourceColumn: omschrijving_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_3
+		dataType: string
+		lineageTag: 8deaa19d-5548-4818-8ce3-af2780477ffa
+		summarizeBy: none
+		sourceColumn: omschrijving_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column omschrijving_4
+		dataType: string
+		lineageTag: 3e40d8f1-1d1d-4734-866a-cdca4c81f88d
+		summarizeBy: none
+		sourceColumn: omschrijving_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentatiegroepid
+		dataType: string
+		lineageTag: 316e5d59-9614-4e8d-b00a-1215c55bc8d8
+		summarizeBy: none
+		sourceColumn: presentatiegroepid
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentatiegroep_grp
+		dataType: string
+		lineageTag: 33efb1b1-c3d2-4822-ba84-1a0c23ab15f0
+		summarizeBy: none
+		sourceColumn: presentatiegroep_grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column presentatiegroep_presentatiegroep
+		dataType: string
+		lineageTag: 615afd90-9ac1-4e8b-86f6-590f94ac127f
+		summarizeBy: none
+		sourceColumn: presentatiegroep_presentatiegroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column prijs_per_eenheid
+		dataType: string
+		lineageTag: 6acfc142-0f19-40ca-832e-8f6da536e08e
+		summarizeBy: none
+		sourceColumn: prijs_per_eenheid
+
+		annotation SummarizationSetBy = Automatic
+
+	column project
+		dataType: string
+		lineageTag: c9ac0109-320f-4bfa-af0f-8e2ee358e35c
+		summarizeBy: none
+		sourceColumn: project
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_prj
+		dataType: string
+		lineageTag: 27854b6e-c4ba-4b48-b7e8-f17ef5cab1e5
+		summarizeBy: none
+		sourceColumn: project_prj
+
+		annotation SummarizationSetBy = Automatic
+
+	column regelbedrag
+		dataType: double
+		lineageTag: 497558af-7073-43aa-8a61-067d6597e965
+		summarizeBy: sum
+		sourceColumn: regelbedrag
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column verkoop__aantal
+		dataType: double
+		lineageTag: 9d735fd2-755d-4fe6-a872-f373d91d6859
+		summarizeBy: sum
+		sourceColumn: verkoop__aantal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column verkooprelatie
+		dataType: int64
+		formatString: 0
+		lineageTag: 24284f29-72a8-4bf6-9b87-ae1cb05434fe
+		summarizeBy: sum
+		sourceColumn: verkooprelatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column bsu__looptijd_in_maanden
+		dataType: string
+		lineageTag: 3b271591-a1cc-45fc-a644-79f9a86d2068
+		summarizeBy: none
+		sourceColumn: bsu__looptijd_in_maanden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataddo_extraction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 83bb0a67-bac2-4099-8430-74c0f8cef9df
+		summarizeBy: none
+		sourceColumn: dataddo_extraction_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 80408b2c-4bcf-48a3-823f-fd8b5e6e76f3
+			defaultHierarchy: LocalDateTable_31684fba-12ce-42bb-a6cd-dcea400d1cdc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ForecastID_Fill New' =
+			
+			VAR DirectForecast =
+			fct_PrecalculationsWithLines_AFAS[forecastid]
+			
+			VAR ForecastFromProject=
+			LOOKUPVALUE(
+			dim_Projects_AFAS[nummer_forecast],
+			dim_Projects_AFAS[project],
+			fct_PrecalculationsWithLines_AFAS[project]
+			)
+			RETURN
+			COALESCE(DirectForecast,ForecastFromProject)
+		formatString: 0
+		lineageTag: 1c09db7d-55a2-4db8-9e86-e61bb3d677ac
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column link_forecast_id =
+			
+			var directid=fct_PrecalculationsWithLines_AFAS[forecastid]
+			var projectlinkid=
+			LOOKUPVALUE(
+			            dim_Projects_AFAS[nummer_forecast]
+			                 ,dim_Projects_AFAS[project],
+			                 fct_PrecalculationsWithLines_AFAS[project])
+			                 return
+			                  if (
+			                    not(isblank(directid)),
+			                    directid,projectlinkid)
+		lineageTag: b8a72aba-0f93-470a-8054-7cb562bbe529
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_PrecalculationsWithLines_AFAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("sql-bsu-bespoke.database.windows.net", "db-bsu-bespoke"),
+				    stg_PrecalculationsWithLines_AFAS = Source{[Schema="stg",Item="PrecalculationsWithLines_AFAS"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(stg_PrecalculationsWithLines_AFAS,{{"verkoop__aantal", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

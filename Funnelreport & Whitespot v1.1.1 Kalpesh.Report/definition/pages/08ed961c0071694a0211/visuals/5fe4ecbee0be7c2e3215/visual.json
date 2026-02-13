@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "5fe4ecbee0be7c2e3215",
+  "position": {
+    "x": 17.801563731135232,
+    "y": 71.826391845537373,
+    "z": 5250,
+    "height": 295.40062116893262,
+    "width": 301.91304347826087,
+    "tabOrder": 5000
+  },
+  "visualGroup": {
+    "displayName": "Forecast",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "3095ffbabe33061e2996",
+  "isHidden": true
+}

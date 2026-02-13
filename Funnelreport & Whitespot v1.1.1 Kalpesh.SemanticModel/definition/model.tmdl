@@ -1,0 +1,87 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_Organisations_AFAS","dim_Employees_AFAS","dim_Projects_AFAS","dim_SalesForecastDeals_AFAS","fct_PrecalculationsWithLines_AFAS","fct_Subscriptions_AFAS","fct_BSU_KPI_Targets_AFAS","fct_SubscriptionLines_AFAS","dim_ Products_AFAS","_Measures","dim_SalesInvoices_AFAS","fct_SalesInvoiceLines_AFAS","dim_FinancialMutations_AFAS"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_3a0cff85-c7bd-4775-a5ee-59f7c63b750f
+ref table dim_Organisations_AFAS
+ref table LocalDateTable_a8894e2f-4cc8-49b7-a654-121fbf15c6ba
+ref table LocalDateTable_89772a0b-0b72-4086-974e-c2e8c40e3f21
+ref table LocalDateTable_00a6e2a9-0339-4046-ab2b-dd83f889676b
+ref table dim_Employees_AFAS
+ref table LocalDateTable_abee245c-9e86-41d8-84b9-092602dedd63
+ref table LocalDateTable_e66358b5-e09d-41b2-a379-48013cc35dbd
+ref table LocalDateTable_050f0e67-2ef7-449b-be3e-974aa581a60e
+ref table dim_Projects_AFAS
+ref table LocalDateTable_7819511e-e78d-43c8-ac5c-421b180415f0
+ref table LocalDateTable_61b5b031-7289-498f-b366-58ecfd1381bf
+ref table LocalDateTable_863fb7fd-d6fb-45b1-a805-56cc3b5cacfe
+ref table LocalDateTable_a8657ae2-d6d8-4066-83af-4a0ef306de0a
+ref table LocalDateTable_043e0f7c-bf15-4a2a-a613-b108794862da
+ref table dim_SalesForecastDeals_AFAS
+ref table LocalDateTable_82dcab27-ee34-4915-81e8-a785f9a269c5
+ref table LocalDateTable_3f405c9e-8704-49b2-b8ad-70d544bc7dfd
+ref table LocalDateTable_be27efac-070b-4062-8c68-b0cc6f0b4deb
+ref table LocalDateTable_22ae2bb9-9777-4a12-a409-376921d07f12
+ref table LocalDateTable_032a49d6-63bb-46fb-9101-dc1772e1f220
+ref table LocalDateTable_3b2235cf-262b-4b27-81e0-637e7cc68621
+ref table fct_PrecalculationsWithLines_AFAS
+ref table LocalDateTable_2b20ceeb-e046-4303-978f-0013bfeeddf1
+ref table LocalDateTable_2bfc5df0-afdd-4516-afd0-7a7ed1937b26
+ref table LocalDateTable_31684fba-12ce-42bb-a6cd-dcea400d1cdc
+ref table fct_Subscriptions_AFAS
+ref table LocalDateTable_5348494e-6bcb-45da-9a2b-feaf6a6d5507
+ref table LocalDateTable_1cc1de24-98ef-418b-b47b-edccd0e775f5
+ref table fct_BSU_KPI_Targets_AFAS
+ref table LocalDateTable_0ca0da10-e23d-4b77-8cda-c8874000402b
+ref table LocalDateTable_8ca345c6-caa1-4515-9fcd-50b53133276f
+ref table LocalDateTable_0c1cf8df-6acf-4d11-8a56-4a5c507c445b
+ref table LocalDateTable_aace9fc6-3e34-4f61-b10a-f0f2d128cc4d
+ref table fct_SubscriptionLines_AFAS
+ref table LocalDateTable_4175baf2-342e-4303-8e38-6d48953deb6c
+ref table LocalDateTable_57fb357f-6c64-47cb-b19e-df08280dd00a
+ref table LocalDateTable_4bab1bff-785f-42fc-807a-cb0edeffd182
+ref table LocalDateTable_1ccba9b5-c531-4ab2-a515-aef830cfa653
+ref table LocalDateTable_74582408-2291-42d9-89a8-522e420cba2d
+ref table LocalDateTable_9f98ad8f-6e0c-42bd-a795-af38b11dc063
+ref table LocalDateTable_dc811eda-44f2-498e-a740-e599cb66ab1f
+ref table LocalDateTable_ffcac100-1c62-4df2-9e9e-39ce2921fc1e
+ref table LocalDateTable_f2e805a4-f7b4-4d3e-954d-3a3b3b5e5192
+ref table 'dim_ Products_AFAS'
+ref table LocalDateTable_247c6b38-d181-4bc0-87c9-62387cbd90af
+ref table LocalDateTable_8795cf43-fecc-4b1f-a4f1-662953c44303
+ref table LocalDateTable_0288bd25-35e4-4a1a-bf64-527eeeb9e795
+ref table 'Product A'
+ref table 'Product B'
+ref table 'CustomerProductWhiteSpot 1'
+ref table dim_Calendar
+ref table _Measures
+ref table LocalDateTable_714519a8-e77b-413c-b4bd-668308ca3986
+ref table LocalDateTable_e84879c6-6caa-4846-9464-c172c5d4e335
+ref table LocalDateTable_a4d1df0d-d9de-42f0-9735-a6c108b301ce
+ref table LocalDateTable_a97eff0d-f86c-435d-9f25-03b1b15cbe05
+ref table dim_SalesInvoices_AFAS
+ref table LocalDateTable_06076cad-c717-487e-8b2f-26d230a98f3c
+ref table LocalDateTable_b649689a-3fa6-4d1e-baaa-867a174ed95f
+ref table LocalDateTable_1e9a34ac-e250-469f-9ce6-8480f7d210ed
+ref table fct_SalesInvoiceLines_AFAS
+ref table LocalDateTable_e3c10851-5652-4416-a46d-c14d079740db
+ref table dim_FinancialMutations_AFAS
+ref table LocalDateTable_25ca19ec-de84-456b-8f8b-c08cf4357a8d
+ref table LocalDateTable_8a951e85-e097-4cf0-a200-7c3c88020794
+ref table LocalDateTable_0103d577-e6bf-4d6f-93ed-0114bed60452
+ref table LocalDateTable_9b020e22-99b8-4d0a-9318-b35dc26ea165
+ref table 'New dynamic changes LS'
+ref table 'New dynamic changes RD'
+
+ref cultureInfo en-US
+

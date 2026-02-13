@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "1f9b1387007e579570c5",
+  "position": {
+    "x": 17.37802291047943,
+    "y": 71.241390406235283,
+    "z": 11001,
+    "height": 270.11263104961051,
+    "width": 302.06226477245281,
+    "tabOrder": 3000
+  },
+  "visualGroup": {
+    "displayName": "Datum",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "3095ffbabe33061e2996"
+}

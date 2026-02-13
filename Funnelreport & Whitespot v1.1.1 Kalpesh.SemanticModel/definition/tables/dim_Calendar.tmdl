@@ -1,0 +1,105 @@
+table dim_Calendar
+	lineageTag: f3a679a2-a7e7-4d7c-9cd1-ac47254732d7
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 8de079c9-135b-48d3-9b39-1c6eb8711219
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		lineageTag: ff157f73-6cf8-44a3-bc23-c95634586f0e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DateKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 95ddc368-9547-44ac-8983-6b9866e6572a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		formatString: 0
+		lineageTag: 25b918ae-0b3b-434b-b041-e292202bcb88
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: 3848592c-a04d-445b-9f42-2174c1148022
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+		sortByColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: 8f60a5ec-37c7-4f7e-a151-90e672926b9a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: ddd24501-3af1-455c-95f4-34ff09f191ba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a71f2323-a981-4e94-bbc2-40d44c21905b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsWeekend]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOfYear
+		formatString: 0
+		lineageTag: 89aaec77-595a-4076-8c73-a7676e04fd9a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [WeekOfYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Calendar = calculated
+		mode: import
+		source = ```
+				
+				VAR MinDate = DATE(2020,1,1)   
+				VAR MaxDate = DATE(YEAR(MAX(dim_SalesForecastDeals_AFAS[verwachte_einddatum].[Date]))+1, 12, 31)
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinDate, MaxDate),
+				    "DateKey", FORMAT([Date],"YYYYMMDD"),
+				    "Year", YEAR([Date]),
+				    "MonthNumber", MONTH([Date]),
+				    "MonthName", FORMAT([Date],"MMMM"),
+				    "YearMonth", FORMAT([Date],"YYYY-MM"),
+				    "Quarter", "Q" & FORMAT(QUARTER([Date]),"0"),
+				    "IsWeekend", IF(WEEKDAY([Date],2) >= 6, TRUE(), FALSE()),
+				    "WeekOfYear", WEEKNUM([Date],2)
+				)
+				```
+
+	annotation PBI_Id = 02117301965f41d4a0fb018b2a9483ab
+
